@@ -17,6 +17,8 @@ class Solution
 	   // gcd(A-B,B);
 	   // else
 	   //  gcd(B-A,A);
+	    
+// 	   Using Iteration 
 	   if(a==0)
 	   return b;
 	   if(b==0)
