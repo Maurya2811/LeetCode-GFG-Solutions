@@ -7,16 +7,28 @@ using namespace std;
 class Solution
 {
 	public:
-    int gcd(int A, int B) 
+    int gcd(int a, int b) 
 	{ 
-	    if(A==0 || B==0)
-	    return A==0 ? B : A;
+	    // Usong Recursion
+	   // if(A==0 || B==0)
+	   // return A==0 ? B : A;
 	    
-	    if(A>B)
-	    gcd(A-B,B);
-	    else
-	     gcd(B-A,A);
-	      
+	   // if(A>B)
+	   // gcd(A-B,B);
+	   // else
+	   //  gcd(B-A,A);
+	   if(a==0)
+	   return b;
+	   if(b==0)
+	   return a;
+	   while(a>0 && b>0){
+	      if(a>b)
+	        a=a-b ;
+	      else
+	        b=b-a;
+	   }
+	    if(a==0 || b==0)
+	    return a==0 ? b : a;
 	} 
 };
 
