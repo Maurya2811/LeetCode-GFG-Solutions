@@ -1,7 +1,7 @@
 class Solution {
 public:
 //    USING DP
-    /*
+    // /*
     int memory[201][201];
     
     int solve(vector<vector<int>>& grid,int i,int j,int &m,int &n){
@@ -26,7 +26,8 @@ public:
         memset(memory,-1,sizeof(memory));
         return solve(grid,0,0,m,n);
     }
-    */
+    // */
+    /*
      int minPathSum(vector<vector<int>>& grid) {
           int m=grid.size();
          int n=grid[0].size();
@@ -56,5 +57,6 @@ public:
          }
          return temp[m-1][n-1];
      }
+    */
     
 };
