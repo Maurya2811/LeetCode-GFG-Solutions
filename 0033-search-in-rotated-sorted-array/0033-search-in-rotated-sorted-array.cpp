@@ -1,73 +1,33 @@
 class Solution {
 public:
- int binarySearch(vector<int>&arr,int l,int r,int x)
- {
-    if (r >= l) {
-        int mid = l + (r - l) / 2;
-  
-        // If the element is present at the middle
-        // itself
-        if (arr[mid] == x)
-            return mid;
-  
-        // If element is smaller than mid, then
-        // it can only be present in left subarray
-        if (arr[mid] > x)
-            return binarySearch(arr, l, mid - 1, x);
-  
-        // Else the element can only be present
-        // in right subarray
-        return binarySearch(arr, mid + 1, r, x);
-    }
-  
-    // We reach here when element is not
-    // present in array
-    return -1;
-}
-  
-int findPivot(vector<int>& nums)
-{
-       int s=0,e=nums.size()-1;
-        ios_base::sync_with_stdio(false);
-          cin.tie(NULL); 
-        int mid;
-        // if(nums.size()>1 && nums[0]>nums[1])
-        // return 0;
-         
-        
-        while(s<=e)
-        {  
-            if(s==e)
-            return s;
-            mid=s+(e-s)/2;
-            if( nums[mid]>nums[mid+1] )
-            return mid;
-            else if(mid >0 && nums[mid-1]>nums[mid]  )
-            return mid-1;
-            else{
-                if(nums[s]>nums[mid])
-                 e=mid-1;
-                  else
-                 s=mid+1;
-            }
-        
-        }
-        return mid;
-}
     int search(vector<int>& nums, int target) {
-        int size=nums.size()-1;
-          int index = findPivot(nums);
-        cout<<index<<endl;
-          int pivot = nums[findPivot(nums)];
-         
-          if(target> pivot)
-          return -1;
-          
-          if(target>=nums[0])
-         index=binarySearch(nums,0,index,target);
-          else
-          index = binarySearch(nums,index+1,size,target);
-
-       return index == -1 ? -1: index;
+       int low =0,high=nums.size()-1;
+        int mid;
+        while(low<=high){
+            mid= (low + high)>>1;
+            if(nums[mid]==target){
+                return mid;
+            }
+            
+            if(nums[mid]>=nums[0]) // left side is sorted
+            {
+                // figure out if element lies on left side or not
+                if(target >=nums[low] && target <=nums[mid]){
+                    high=mid-1;
+                }
+                else{
+                    low=mid+1;
+                }
+            }
+             /* Right side is sorted */
+            else{
+                 if(target >=nums[mid] && target <=nums[high])
+                     low=mid+1;
+                 else{
+                     high =mid-1;
+                 }
+             }
+        }
+        return -1;
     }
 };
