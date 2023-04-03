@@ -23,7 +23,7 @@ public:
        
    }
     
-    string numberToWords(int &num) {
+    string numberToWords(int num) {
         
     
     string word="";
