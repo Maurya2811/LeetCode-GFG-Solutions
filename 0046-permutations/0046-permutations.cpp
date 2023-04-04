@@ -14,7 +14,7 @@ public:
              // BackTracking 
               swap(nums[i],nums[j]);
          }
-        // return ;
+       
     }
     
     vector<vector<int>> permute(vector<int>& nums) {
