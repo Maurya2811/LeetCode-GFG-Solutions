@@ -11,6 +11,7 @@ public:
          for(int j=i;j<nums.size();j++){
              swap(nums[i],nums[j]);
              permutations(nums , i+1,vec);
+             // BackTracking 
               swap(nums[i],nums[j]);
          }
         return vec;
