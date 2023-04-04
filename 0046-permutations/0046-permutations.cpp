@@ -1,6 +1,6 @@
 class Solution {
 public:
-     vector<vector<int>> permutations(vector<int>nums ,int i, vector<vector<int>> &vec){
+     vector<vector<int>> permutations(vector<int>&nums ,int i, vector<vector<int>> &vec){
         
         if(i>=nums.size()){
              vec.push_back(nums);
@@ -11,7 +11,7 @@ public:
          for(int j=i;j<nums.size();j++){
              swap(nums[i],nums[j]);
              permutations(nums , i+1,vec);
-              // swap(nums[i],nums[j]);
+              swap(nums[i],nums[j]);
          }
         return vec;
     }
