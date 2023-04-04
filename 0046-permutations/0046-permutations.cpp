@@ -1,10 +1,10 @@
 class Solution {
 public:
-     vector<vector<int>> permutations(vector<int>&nums ,int i, vector<vector<int>> &vec){
+     void permutations(vector<int>&nums ,int i, vector<vector<int>> &vec){
         
         if(i>=nums.size()){
              vec.push_back(nums);
-            return vec;
+            return ;
         }
            
          
@@ -14,7 +14,7 @@ public:
              // BackTracking 
               swap(nums[i],nums[j]);
          }
-        return vec;
+        // return ;
     }
     
     vector<vector<int>> permute(vector<int>& nums) {
