@@ -7,18 +7,19 @@ using namespace std;
 
 // } Driver Code Ends
 // User function template for C++
-        
+      
+//           int dx[]={0 ,  0 , -1  , 0 };
+//           int dy[]={-1,  1 ,  0  , 1 };
+//   char direction[]={'L','R', 'U' ,'D'}; 
+class Solution{
+    public:
+       
         //      !!!!  safe/valid move
         /*
             1. Index array ke bahar na jae
             2. Maze ka box me 1 hona chahiye
             3. Visited me false hona chahiye
         */
-  
-        
-class Solution{
-    public:
-     
       bool isSafe(vector<vector<int>> &m,int& n,int x,int y,vector<vector<bool>> &visited) {
         if((x<n && x>=0) && (y>=0 && y<n ) && ( visited[x][y]==false) && (m[x][y]==1)){
          
@@ -37,7 +38,7 @@ class Solution{
             return ;
         }
         // Solve One case
-        
+       
         // left move
         if( isSafe(m,n,x,y-1,visited))
            {
@@ -67,7 +68,19 @@ class Solution{
                solveMaze(m,n,x+1,y,path,visited,output+'D');
                visited[x+1][y]=false;
            }
-        
+    /*       
+        // calling all four cases using for loop
+         for(int k=0;k<4;k++){
+             int newX = x + dx[k];
+             int newY = y + dy[k];
+             char newDirec= direction[k];
+             if(isSafe(m,n,newX,newY,visited)){
+                  visited[newX][newY]=true;
+               solveMaze(m,n,newX,newY,path,visited,output + newDirec);
+               visited[newX][newY]=false;
+             }
+         }
+    */
     }
     
     vector<string> findPath(vector<vector<int>> &m, int n) {
