@@ -74,6 +74,8 @@ class Solution{
        vector<string> path;
         vector<vector<bool>> visited(n,vector<bool>(n,false)); 
         visited[0][0]=true;
+        
+        //  No path Exists
         if(m[0][0]==0 || m[n-1][n-1]==0)
           return path;
        string output="";
