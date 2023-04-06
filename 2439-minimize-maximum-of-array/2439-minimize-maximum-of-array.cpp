@@ -1,5 +1,11 @@
+ static const auto init = []{
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    return false;
+}();
 class Solution {
 public:
+   
     
     bool isValid(vector<int>& nums,int mid,int &n){
         vector< long long > arr (nums.begin(),nums.end());
