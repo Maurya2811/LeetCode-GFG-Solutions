@@ -1,8 +1,4 @@
- static const auto init = []{
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    return false;
-}();
+
 class Solution {
 public:
    
