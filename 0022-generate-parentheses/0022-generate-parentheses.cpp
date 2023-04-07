@@ -11,12 +11,14 @@ public:
         if(remaining_Open>0){
               temp.push_back('(');
             solve(temp,remaining_Open-1,remaining_Close);
+              // Backtracking
              temp.pop_back();
         }
          // Case 2 When remaining close brackets is more than remaining open brackets 
           if(remaining_Close > remaining_Open ){
               temp.push_back(')');
             solve(temp,remaining_Open,remaining_Close-1);
+              // Backtracking
              temp.pop_back();
         }
     }
