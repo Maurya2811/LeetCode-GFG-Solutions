@@ -34,8 +34,11 @@ public:
          return false;
      }
      /*
+     check karna chahte h , k kya main 
+     current cell [row,col] pr    QUEEN rakh 
        int i=row;
        int j=col;
+       
        // ROW CHECK
      while(j>=0){
           if(chess[i][j]=='Q'){
@@ -43,8 +46,10 @@ public:
           }
           j--;
       }
+      
       i=row;
       j=col;
+      
        // upper_left_diagonal CHECK
       while(j>=0 && i>=0){
           if(chess[i][j]=='Q'){
@@ -56,6 +61,7 @@ public:
       
       i=row;
       j=col;
+      
         // lower_left_diagonal CHECK
       while(j>=0 && i<n){
           if(chess[i][j]=='Q'){
@@ -64,6 +70,9 @@ public:
           i++;
           j--;
       }
+      kahin pr bhi queen nahi mili
+      iska matlab ye position safe hai 
+      iska matlab return kardo true
       */
       return true;
   }
@@ -76,12 +85,14 @@ public:
         for(int row=0;row<n;row++){
             if(isSafe(row,col,n)){
                 rowCheck[row]=true;
-                  upper_left_diagonal[n+col-row]=true;
-                  lower_left_diagonal[col+row]=true;
+                upper_left_diagonal[n+col-row]=true;
+                lower_left_diagonal[col+row]=true;
                 board[row][col]='Q';
-                solveQueen(board,n,col+1) ;
-                board[row][col]='.';
-                rowCheck[row]=false;
+                solveQueen(board,n,col+1);
+                
+                // BACKTRACKING
+                  board[row][col]='.';
+                  rowCheck[row]=false;
                   upper_left_diagonal[n+col-row]=false;
                   lower_left_diagonal[col+row]=false;
             }
