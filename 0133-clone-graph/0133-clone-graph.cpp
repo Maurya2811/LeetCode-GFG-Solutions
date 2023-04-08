@@ -39,8 +39,13 @@ public:
         // for Null Graph
         if(!node)
             return NULL;
-        
+        // Clone the given node
         Node* clone_node = new Node(node->val);
+        // Now , Clone its neighbors and recursively their neighbors
+        /*
+          But if a node reappears, then we need to access that cloned node
+          So, store them in a map < Node* , Node*>
+        */
         mp[node]=clone_node;
         
         DFS(node,clone_node);
