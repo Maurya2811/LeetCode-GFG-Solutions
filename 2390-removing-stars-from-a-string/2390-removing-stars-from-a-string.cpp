@@ -6,7 +6,7 @@ public:
         
         // 1 Approach 
         // Using String
-     /* 
+    // /* 
         string str="";
         for(int i=0;i<s.length();i++){
             if(s[i]=='*'){
@@ -16,7 +16,7 @@ public:
                 str.push_back(s[i]);
          }
         return str;
-     */
+   //  */
            
         //  2. Using Stack (Slow Approach)
         
@@ -39,6 +39,7 @@ public:
        */
         
     // Using 2 pointer 
+        /*
         int size=s.length();
         
         vector<char> arr(size);
@@ -58,7 +59,8 @@ public:
             result.push_back(arr[k]);
         }
         
-        
+     
         return result;
+        */
     }
 };
