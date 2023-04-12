@@ -6,7 +6,7 @@ class Solution {
 public:
     
     string simplifyPath(string path) {
-   /*
+   // /*
         stringstream ss(path);
         string token="";
         stack<string> st;
@@ -35,13 +35,13 @@ public:
             st.pop();
         }
         return ans;
-        */
+        // */
         
-  //             2. Using String
-
-                stringstream ss(path);
+  //             2. Using Vector
+/*
+        stringstream ss(path);
         string token="";
-      vector <string>st;
+        vector <string>st;
         while(getline(ss,token,'/')){
             if(token == "." || token == "")
                 continue;
@@ -53,12 +53,18 @@ public:
                 st.pop_back();         
             
         }
+        
         if(st.empty())
             return "/";
+        
         string ans="";
-       for(auto &it:st){
+     
+        for(auto &it:st){
            ans =ans + "/" + it;
        }
+        
         return ans;
+        
+ */
     }
 };
