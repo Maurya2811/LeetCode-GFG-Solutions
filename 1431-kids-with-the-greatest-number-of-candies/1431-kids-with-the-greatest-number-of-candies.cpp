@@ -4,7 +4,8 @@ public:
         // Finding max Element
         int maxi= *max_element(candies.begin(),candies.end());
       
-          vector<bool> v(candies.size());
+          vector<bool> v(candies.size(),false);
+        
         for(int i=0;i<v.size();i++){
             if(candies[i]+extraCandies >= maxi){
                 v[i]=true;
