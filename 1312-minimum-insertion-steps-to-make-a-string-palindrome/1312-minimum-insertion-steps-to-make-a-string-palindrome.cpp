@@ -1,30 +1,20 @@
 class Solution {
 public:
-    int lcs(string& s1, string& s2, int m, int n) {
-        vector<int> dp(n + 1), dpPrev(n + 1);
-
-        for (int i = 0; i <= m; i++) {
-            for (int j = 0; j <= n; j++) {
-                if (i == 0 || j == 0) {
-                    // One of the two strings is empty.
-                    dp[j] = 0;
-                } else if (s1[i - 1] == s2[j - 1]) {
-                    dp[j] = 1 + dpPrev[j - 1];
-                } else {
-                    dp[j] = max(dpPrev[j], dp[j - 1]);
-                }
-            }
-            dpPrev = dp;
+    int dp[501][501];
+        int solve(string &s,int i,int j){
+            if(i>j)
+               return 0; // All req. chars are inserted
+            if(dp[i][j]!=-1)
+                return dp[i][j];
+            if(s[i]==s[j])
+              return dp[i][j]=solve(s,i+1,j-1);
+           else 
+                // Char is inserted in two possible ways
+               return dp[i][j]= 1 + min (solve(s,i,j-1) ,solve(s,i+1,j)); 
+//   1 is added bcoz one char is inserted ,, at before i index     2. after j index that's why j index is not updated       
         }
-
-        return dp[n];
-    }
-
     int minInsertions(string s) {
-        int n = s.length();
-        string sReverse = s;
-        reverse(sReverse.begin(), sReverse.end());
-
-        return n - lcs(s, sReverse, n, n);
+       memset(dp,-1,sizeof(dp));
+        return solve(s,0,s.length()-1);
     }
 };
