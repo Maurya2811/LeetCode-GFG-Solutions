@@ -1,5 +1,5 @@
 // 3 Approaches
-
+/*
 // 1 Brute Force ( Using bool vector)
 class SmallestInfiniteSet {
 public:
@@ -33,23 +33,42 @@ public:
     }
 };
 
+*/
 //2. Better Approach ( using Unordered Set and Min Heap)
-/*
+// /*
  class SmallestInfiniteSet {
 public:
+     unordered_set<int>set;
+     priority_queue<int,vector<int>, greater<int> > pq; 
+     int currSmallest;
+     
     SmallestInfiniteSet() {
-        
+        currSmallest=1;
     }
     
     int popSmallest() {
-        
+     int result;
+          if(!pq.empty()){
+                    result=pq.top();
+                    pq.pop();
+                    set.erase(result);
+              }
+            else{
+                result=currSmallest;
+                currSmallest++;
+            }
+     return result;
     }
     
     void addBack(int num) {
-        
+        if(num>=currSmallest || set.find(num)!=set.end())
+            return ;
+        set.insert(num);
+        pq.push(num);
     }
 };
-*/
+ 
+  // */
 // 3. Optimal Approach (using Ordered Set only)
 /*
 class SmallestInfiniteSet {
