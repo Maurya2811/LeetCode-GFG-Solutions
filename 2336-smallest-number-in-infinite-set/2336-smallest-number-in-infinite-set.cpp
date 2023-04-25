@@ -35,7 +35,7 @@ public:
 
 */
 //2. Better Approach ( using Unordered Set and Min Heap)
-// /*
+ /*
  class SmallestInfiniteSet {
 public:
      unordered_set<int>set;
@@ -68,22 +68,38 @@ public:
     }
 };
  
-  // */
+   */
 // 3. Optimal Approach (using Ordered Set only)
-/*
-class SmallestInfiniteSet {
+ // /*
+ class SmallestInfiniteSet {
 public:
+     set<int>set;
+     int currSmallest;
+     
     SmallestInfiniteSet() {
-        
+        currSmallest=1;
     }
     
     int popSmallest() {
-        
+     int result;
+          if(!set.empty()){
+                    result= *set.begin();
+                    set.erase(result);
+              }
+         else{
+                result=currSmallest;
+                currSmallest++;
+            }
+          
+     return result;
     }
     
     void addBack(int num) {
+        if(num>=currSmallest || set.find(num)!=set.end())
+            return ;
+        set.insert(num);
         
     }
 };
  
- */
+// */
