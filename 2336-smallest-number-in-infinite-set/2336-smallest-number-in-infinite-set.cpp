@@ -22,13 +22,14 @@ public:
     
     void addBack(int num) {
          flag[num]=true;
-      if(num>i)
-        {
-          return;
-        }
-       
-        i=num;
-        return;
+      // if(num>i)
+      //     return;
+      //  else 
+      //  { i=num;
+      //    return;
+      //  }
+        if(num<i)
+            i=num;
     }
 };
 
