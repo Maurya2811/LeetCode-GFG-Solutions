@@ -1,16 +1,23 @@
+// 2 Approaches
+//1. Brute Force
 class Solution {
 public:
-    int addDigits(int num) {
-        if(num<10)
-            return num;
-        int temp=num;
-        int sum=0;
-        while(temp){
-            sum+=temp%10;
-            temp/=10;
+    int sum=0;
+    int countOfDigits(int num){
+        sum=0;
+        int count=0;
+         while(num){
+            sum+=num%10;
+            num/=10;
+             count++;
         }
-        num=sum;
-      return addDigits(num);
+        return count;
+    }
+    int addDigits(int num) {
+        while(countOfDigits(num)>1){
+            num=sum;
+        }
         
+       return sum; 
     }
 };
