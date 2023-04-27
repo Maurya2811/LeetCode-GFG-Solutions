@@ -25,20 +25,26 @@ public:
 */
 
 // Optimized
-// Perfect Squares has Odd no. of factors 
-// Odd -> Bulb Open  & Even -> Bulb Closed
+/*       Perfect Squares has Odd no. of factors 
+         Odd -> Bulb Open  & Even -> Bulb Closed
+ */
 class Solution {
 public:
     
-    
+ 
     int bulbSwitch(int n) {
+   /*   Counting Perfect Squares
+
        int count=0;
         for(int i=1;i*i <=n ; i++){
             count++;
         }
-        return count;
+         return count;
+   */     
+       return sqrt(n);  // It gives count of all Perfect Squares lying in the range
     }
 
 };
+
 
 
