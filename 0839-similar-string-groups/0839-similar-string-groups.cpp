@@ -1,3 +1,8 @@
+// 3 Approaches 
+// 1. DFS
+// 2. BFS
+// 3. Disjoint Sets
+
 class Solution {
 public:
     
@@ -10,17 +15,33 @@ public:
          }
         return diff==0 || diff==2;
     }
-    
-    
-    void DFS(int u, unordered_map<int,vector<int>> &adj, vector<bool> &visited){
-          visited[u]=true;
-          for(int &v: adj[u]){
+     void BFS(int i, unordered_map<int,vector<int>> &adj, vector<bool> &visited){
+         queue<int> q;
+         
+         q.push(i);
+          visited[i]=true;
+         
+         while(!q.empty()){
+         int u=q.front();
+         q.pop();
+         for(int &v:adj[u]){
              if(!visited[v]){
-                 DFS(v,adj,visited);
+                 q.push(v);
+                 visited[v]=true;             
              }
-          }
-        
+         }
+         }
     }
+    
+//     void DFS(int u, unordered_map<int,vector<int>> &adj, vector<bool> &visited){
+//           visited[u]=true;
+//           for(int &v: adj[u]){
+//              if(!visited[v]){
+//                  DFS(v,adj,visited);
+//              }
+//           }
+        
+//     }
         
         
     
@@ -42,7 +63,8 @@ public:
           
         for(int i=0;i<n;i++){
             if(!visited[i]){
-                DFS(i,adj,visited);
+                // DFS(i,adj,visited);
+                  BFS(i,adj,visited);
                 count++;
             }
         }
