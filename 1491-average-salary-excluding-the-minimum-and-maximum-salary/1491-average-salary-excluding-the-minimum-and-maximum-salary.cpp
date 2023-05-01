@@ -11,11 +11,11 @@ public:
         }
         return (double)(sum)/(n-2);
         */
-        int n=salary.size();
+        
         int max= *max_element(salary.begin(),salary.end());
         int min= *min_element(salary.begin(),salary.end());
         int sum=accumulate(salary.begin(),salary.end(),0);
         sum=sum - (max+min);
-        return (double)(sum)/(n-2);
+        return (double)(sum)/(salary.size()-2);
     }
 };
