@@ -16,8 +16,8 @@ public:
         }
         return prev;
     }
-  // 2.  
-    // /* Recursive
+  // 2.  Recursive
+     /* Recursive
     ListNode* reverseRecursive(ListNode* &prev, ListNode* &curr){
         if(!curr){
             return prev;
@@ -28,16 +28,16 @@ public:
      return  reverseRecursive(curr,forward);
     }
     
-    
+    */
     
     ListNode* reverseList(ListNode* head) {
         if(head==NULL || head->next==NULL)
             return head;
-        // head = reverseIterative(head);
+        head = reverseIterative(head);
         
-        ListNode* prev=NULL;
-        ListNode* curr=head;
-          head = reverseRecursive(prev,curr);
+        // ListNode* prev=NULL;
+        // ListNode* curr=head;
+        //   head = reverseRecursive(prev,curr);
         return head;
     }
 };
