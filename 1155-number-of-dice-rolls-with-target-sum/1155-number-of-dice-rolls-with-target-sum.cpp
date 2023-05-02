@@ -7,7 +7,7 @@ public:
             return 1;
         // Valid mode
         if(n==0 && target!=0)
-            return 0;
+            return dp[n][target]=0;
         // Invalid Step
         
         if(dp[n][target]!=-1)
