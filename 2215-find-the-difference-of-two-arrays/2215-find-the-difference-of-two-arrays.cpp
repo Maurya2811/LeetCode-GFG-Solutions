@@ -23,14 +23,22 @@ public:
     */
     
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        
+        // Set puts all unique elements in sorted order
        set<int> st1(nums1.begin(),nums1.end());
         
        set<int> st2(nums2.begin(),nums2.end());
         
         vector<int> v1;
         vector<int> v2;
-        
+        /*
+         set_difference ->   It copies the elements from the sorted 
+                             s1 which are not found in Sorted st2 to a 
+                             container in sorted order.
+       
+         back_inserter  ->  It can be used to add elements to the 
+                             end of the cotainer
+       
+       */
         set_difference(st1.begin(),st1.end(),st2.begin(),st2.end(),back_inserter(v1));
          set_difference(st2.begin(),st2.end(),st1.begin(),st1.end(),back_inserter(v2));
         
