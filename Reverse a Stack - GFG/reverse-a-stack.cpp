@@ -11,31 +11,31 @@ using namespace std;
 class Solution{
 public:
 
-void reverse(stack<int> &st,int &target,int i){
-    if(st.size()==i){
+void InsertAtBottom(stack<int> &st,int &target){
+    if(st.empty()){
         st.push(target);
         return;
     }
     int temp=st.top();
     st.pop();
-     reverse(st,target,i);
+     InsertAtBottom(st,target);
      st.push(temp);
 }
 
-   void solve(stack<int> &st,int &size){
-       int i=0;
-       while(i<size){
-           int target=st.top();
-            st.pop();
-           reverse(st,target,i);
-           i++;
+   void solve(stack<int> &st){
+      if(st.empty())
+      return;
+        
+        int target=st.top();
+        st.pop();
+        solve(st);
+        InsertAtBottom(st,target);
        }
        
-   }
+  
     void Reverse(stack<int> &st){
-        int size=st.size();
-        
-        solve(st,size);
+       
+        solve(st);
     }
 };
 
