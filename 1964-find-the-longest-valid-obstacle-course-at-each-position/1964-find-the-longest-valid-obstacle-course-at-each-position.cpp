@@ -35,6 +35,8 @@ public:
                 LIS.push_back(nums[i]);
             else
                 LIS[idx]=nums[i];
+            // idx+1 -> length of subsequence
+            // Ending element  nums[i]
             
             result[i]=idx+1;
         }
