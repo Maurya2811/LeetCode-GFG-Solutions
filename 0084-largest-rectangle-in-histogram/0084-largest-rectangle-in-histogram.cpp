@@ -34,6 +34,8 @@ public:
     }
     int largestRectangleArea(vector<int>& heights) {
         // We need to find the right boundary and left boundary for every bar.
+         ios::sync_with_stdio(false);
+        cin.tie(nullptr);
         int area=0,max_area=0;
         int n=heights.size();
     vector<int> left(n);
