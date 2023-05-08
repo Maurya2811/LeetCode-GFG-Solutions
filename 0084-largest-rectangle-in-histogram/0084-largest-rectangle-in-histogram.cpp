@@ -1,6 +1,6 @@
 class Solution {
 public:
-    
+    // Previous Smaller Element
     void leftLimit(vector<int>& heights, vector<int>&left){
           stack<int> st;int n=heights.size();
         st.push(-1);
@@ -15,6 +15,8 @@ public:
         }
          
     }
+    
+    // Next Smaller Element
     void rightLimit(vector<int>& heights, vector<int>&right){
           stack<int> st;
         int n=heights.size();
@@ -32,10 +34,11 @@ public:
         }
          
     }
+    
+    
     int largestRectangleArea(vector<int>& heights) {
         // We need to find the right boundary and left boundary for every bar.
-         ios::sync_with_stdio(false);
-        cin.tie(nullptr);
+       
         int area=0,max_area=0;
         int n=heights.size();
     vector<int> left(n);
