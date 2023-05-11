@@ -11,7 +11,9 @@ public:
         if(nums1[i]==nums2[j])
             return dp[i][j]= 1+ solve(i+1,j+1,nums1,nums2,dp);
         else{
-            return dp[i][j]=max(solve(i+1,j,nums1,nums2,dp),solve(i,j+1,nums1,nums2,dp));
+            int fix_i =solve(i,j+1,nums1,nums2,dp);
+            int fix_j = solve(i+1,j,nums1,nums2,dp);
+            return dp[i][j]=max(fix_i,fix_j);
         }
     }
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
