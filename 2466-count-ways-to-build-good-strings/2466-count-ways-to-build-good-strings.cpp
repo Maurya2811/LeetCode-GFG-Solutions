@@ -16,11 +16,11 @@ public:
       
      
       
-      int ans_0 =   solve(low,high,zero,one,len+zero,dp);
+      // int ans_0 =   solve(low,high,zero,one,len+zero,dp);
       
-       int ans_1 =  solve(low,high,zero,one,len+one,dp);
+       // int ans_1 =  solve(low,high,zero,one,len+one,dp);
       
-      return dp[len]= (addOne + ans_0 + ans_1)%mod;
+      return dp[len]= (addOne + solve(low,high,zero,one,len+zero,dp) + solve(low,high,zero,one,len+one,dp)  )%mod;
   }
         
     int countGoodStrings(int &low, int &high, int &zero, int &one) {
