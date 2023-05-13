@@ -5,6 +5,7 @@ public:
       
         if(len>high)
           return 0;
+      
       if(dp[len]!=-1)
           return dp[len];
       
