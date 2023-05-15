@@ -35,10 +35,10 @@ public:
             secondNode=temp;
         }
         
-        swap(firstNode->val,secondNode->val);
-        // int t=firstNode->val;
-        // firstNode->val = secondNode->val;
-        // secondNode->val=t;
+        // swap(firstNode->val,secondNode->val);
+        int t=firstNode->val;
+        firstNode->val = secondNode->val;
+        secondNode->val=t;
         
         return head;
     }
