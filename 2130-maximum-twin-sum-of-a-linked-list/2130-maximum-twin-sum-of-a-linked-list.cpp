@@ -21,6 +21,9 @@ public:
          return len;
      }
     int pairSum(ListNode* head) {
+         ios_base::sync_with_stdio(false);
+            cin.tie(NULL);
+            cin.tie(nullptr);
         int len= findLen(head);
         int n=len;
         ListNode* prev=NULL;
