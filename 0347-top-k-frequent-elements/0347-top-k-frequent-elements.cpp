@@ -1,7 +1,7 @@
 // Two Appraoches
 
 // Using Min Heap
-// /*
+/*
 class Solution {
 public:
     
@@ -35,15 +35,43 @@ public:
     return result;
     }
 };
-// */
+*/
 
 // Using Bucket Sort
 
-/*
+// /*
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
+        int n=nums.size();
+        unordered_map<int,int>map;
+        for(int &num:nums){
+            map[num]++;
+        }
         
+        vector<vector<int>>bucket(n+1);
+        // Index = freq 
+        // value = elements
+        // bucket[i]= element having i frequency
+        for(auto &x:map){
+            bucket[x.second].push_back(x.first);
+        }
+        
+        vector<int> result;
+        // Pick elements from right to left from bucket to find out max freq element
+         for(int i=n;i>=0;i--){
+             if(bucket[i].size()==0)
+                 continue;
+             while(bucket[i].size()>0 && k>0){
+                 result.push_back(bucket[i].back());
+                 bucket[i].pop_back();
+                 k--;
+             }
+             
+         }
+        
+        return result;
+     
     }
 };
-*/
+// */
