@@ -1,33 +1,59 @@
+//Approach-1 (Brute Force) - TLE
+/*
 class Solution {
 public:
     double new21Game(int n, int k, int maxPts) {
-      /*
-        vector<double> dp(n + 1);
-        dp[0] = 1;
-        double s = k > 0 ? 1 : 0;
-        for (int i = 1; i <= n; i++) {
-            dp[i] = s / maxPts;
-            if (i < k) {
-                s += dp[i];
-            }
-            if (i - maxPts >= 0 && i - maxPts < k) {
-                s -= dp[i - maxPts];
-            }
-        }
-        return accumulate(dp.begin() + k, dp.end(), 0.0);
-     */   
+        vector<double> P(n + 1);
+        //P[i] = probability of getting score = i
         
-         if(n>=k+maxPts || k == 0) return 1.0;
-        vector<double>dp(n+1,0);
-        double pSum =1.0;
-        double res= 0.0;
-        dp[0] = 1.0;
-        for(int i=1;i<=n;i++){
-            dp[i] = pSum/maxPts;
-            if(i<k) pSum += dp[i];
-            else res += dp[i];
-            if(i-maxPts >=0) pSum -= dp[i-maxPts];
+        P[0] = 1; //Since already initally she has score = 0, hence probability for scoring 0 is 1
+        
+        for (int i = 1; i <= n; i++) {
+            
+            for (int j = 1; j <= maxPts; j++) {
+                
+                if (i - j >= 0 && i - j < k) {
+                    
+                    //Probability of score j = 1/maxPts
+                    //Remaining points = (i-j);
+                    //So,  P[i] = Probability of j * Probability of remaining
+                    //i.e. P[i] = 1/maxPts * P[i-j]
+                    //Or, P[i] = P[i-j]/maxPts;
+                    
+                    P[i] += P[i - j] / maxPts;
+                }
+            }
         }
-        return res;
+        return accumulate(P.begin() + k, P.end(), 0.0);
+    }
+};
+
+*/
+
+//Approach-2 (Optimising above solution to use already solve subproblem)
+class Solution {
+public:
+    double new21Game(int n, int k, int maxPts) {
+        vector<double> P(n + 1, 0.0);
+        //P[i] = probability of getting score = i
+        
+        P[0] = 1; //Since already initally she has score = 0, hence probability for scoring 0 is 1
+        
+        double currProbabSum = k > 0 ? 1 : 0;
+        
+        for (int i = 1; i <= n; i++) {
+            
+            P[i] = currProbabSum/maxPts;
+            
+            if(i < k) {
+                currProbabSum += P[i];
+            }
+            
+            if(i - maxPts >= 0 && i-maxPts < k) {
+                currProbabSum -= P[i-maxPts];
+            }
+            
+        }
+        return accumulate(P.begin() + k, P.end(), 0.0);
     }
 };
