@@ -1,22 +1,20 @@
 class MyHashSet {
 public:
-    int v[10000000];
+    vector<bool> v;
     MyHashSet() {
-      memset(v,-1,sizeof(v));
+      v.resize(1000001,false);
     }
     
     void add(int key) {
-        v[key]=key;
+        v[key]=true;
     }
     
     void remove(int key) {
-       v[key]=-1;
+       v[key]=false;
     }
     
     bool contains(int key) {
-        if(v[key]!=-1)
-            return true;
-        return false;
+      return v[key];
     }
 };
 
