@@ -1,3 +1,5 @@
+//Brute Force
+/*
 class MyHashSet {
 public:
     vector<bool> v;
@@ -17,11 +19,41 @@ public:
       return v[key];
     }
 };
+*/
 
-/**
- * Your MyHashSet object will be instantiated and called as such:
- * MyHashSet* obj = new MyHashSet();
- * obj->add(key);
- * obj->remove(key);
- * bool param_3 = obj->contains(key);
- */
+class MyHashSet {
+public:
+  int M;
+    vector<list<int>> bucket;
+    MyHashSet() {
+      bucket.resize(10010);
+        M=10010;
+    }
+    
+    int getIndex(int key){
+        return key%M;
+    }
+    
+    void add(int key) {
+        int i= getIndex(key);
+         auto itr =find(bucket[i].begin(),bucket[i].end(),key);
+        if(itr==bucket[i].end()){
+            bucket[i].push_back(key);
+        }
+    }
+    
+    void remove(int key) {
+        int i= getIndex(key);
+      auto itr =find(bucket[i].begin(),bucket[i].end(),key);
+        if(itr!=bucket[i].end()){
+            bucket[i].erase(itr);
+        }
+    }
+    
+    bool contains(int key) {
+        int i= getIndex(key);
+      auto itr =find(bucket[i].begin(),bucket[i].end(),key);
+      return itr!=bucket[i].end();
+    }
+
+};
