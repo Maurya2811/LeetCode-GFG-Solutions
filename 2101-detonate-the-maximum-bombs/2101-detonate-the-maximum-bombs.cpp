@@ -1,3 +1,5 @@
+//DFS
+/*
 class Solution {
 public:
     typedef long long LL;
@@ -45,3 +47,67 @@ public:
         return ans;
     }
 };
+*/
+
+// BFS
+
+// /*
+
+class Solution {
+public:
+    typedef long long LL;
+    int BFS(int u,unordered_map<int,vector<int>> &adj ){
+     unordered_set<int>visited;
+     queue<int> que;
+        que.push(u);
+         visited.insert(u);
+        
+        
+        while(!que.empty()){
+            
+            int curr=que.front();
+            que.pop();
+            
+            for(int &v: adj[curr] ){
+                if(visited.find(v)==visited.end()){
+                    que.push(v);
+                    visited.insert(v);
+                }
+            }
+        }
+     
+        return visited.size();
+    }
+    int maximumDetonation(vector<vector<int>>& bombs) {
+        int n=bombs.size();
+       unordered_map<int,vector<int>> adj;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==j)
+                    continue;
+                LL x1=bombs[i][0];
+                LL y1=bombs[i][1];
+                LL r=bombs[i][2];
+                
+                LL x2=bombs[j][0];
+                LL y2=bombs[j][1];
+                
+                
+                if((LL(r*r)) >= ((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))){
+                    
+                    adj[i].push_back(j);
+                }
+            }
+        }
+        int ans=0;
+        unordered_set<int> visited;
+        for(int i=0;i<n;i++){
+          int count = BFS(i,adj);
+            ans= max(ans,count);
+        }
+        return ans;
+    }
+};
+
+
+// */
