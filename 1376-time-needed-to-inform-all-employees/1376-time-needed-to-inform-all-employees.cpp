@@ -2,13 +2,29 @@ class Solution {
 public:
      int maxTime=0;
     
-    void DFS(int curr_Emp,unordered_map<int,vector<int>> &adj, vector<int>& informTime,int currTime){
-        maxTime=max(maxTime,currTime);
-        for(int &v: adj[curr_Emp]){
+    void BFS(int curr_Emp,unordered_map<int,vector<int>> &adj, vector<int>& informTime){
+       
+        queue<pair<int,int>>que;
+        que.push({curr_Emp,0});
+        
+        while(!que.empty()){
+            pair<int,int> curr = que.front();
+            que.pop();
+                curr_Emp = curr.first;
+              int currTime = curr.second;
+            
+            maxTime=max(maxTime,currTime);
+            
+            for(int &v: adj[curr_Emp]){
            int temp= currTime + informTime[curr_Emp];
-           DFS(v,adj,informTime,temp);
+         
+           que.push({v,temp});
             
         }
+            
+        }
+       
+        
     }
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
         unordered_map<int,vector<int>> adj;
@@ -20,7 +36,7 @@ public:
         
        
         
-        DFS(headID,adj,informTime,0);
+        BFS(headID,adj,informTime);
         
         
         
