@@ -1,15 +1,60 @@
+//Approach-1 (Using Sorting (O(nlogn))
+/*
 class Solution {
 public:
     bool canMakeArithmeticProgression(vector<int>& arr) {
-        sort(begin(arr),end(arr));
-        // int diff = abs(arr[1]-arr[0]);
-        int diff = arr[1]-arr[0];
+        int n = arr.size();
         
-        for(int i=2;i<arr.size();i++){
-//            if(diff!=abs(arr[i]-arr[i-1]))
-            if(diff!=arr[i]-arr[i-1])
+        sort(begin(arr), end(arr));
+        
+        int d = arr[1] - arr[0];
+        
+        for(int i = 2; i<n; i++) {
+            if(arr[i] - arr[i-1] != d)
                 return false;
         }
+        
         return true;
     }
 };
+*/
+
+
+//Approach-2 (Using Mathematival AP property - O(n) Time, O(n) Space))
+// /*
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) {
+        int n = arr.size();
+        
+        unordered_set<int> st(begin(arr), end(arr));
+        
+        int min_el = *min_element(begin(arr), end(arr)); // a
+        int max_el = *max_element(begin(arr), end(arr)); // a+(n-1)*d
+                                                         // -
+                                                        // ---------------------
+                                                        //   (n-1)*d = constt
+                                                       // d = constt /(n-1)
+                         // Since common differece never be fractional that's why 
+                         // n-1 must be multiple of diff( max_el - min_el )
+        
+        if((max_el - min_el)%(n-1)!=0)
+            return false;
+        
+        int d = (max_el - min_el)/(n-1);
+        
+        int i = 0; 
+        //a0 , a0+d , a0 + 2d
+        
+        while(i < n) {
+            int num = min_el + i*d;
+            if(st.find(num) == st.end())
+                return false;
+            
+            i++;
+        }
+        
+        return true;
+    }
+};
+// */
