@@ -1,3 +1,5 @@
+//Approach 1
+/*
 class Solution {
 public:
     int minFlips(int a, int b, int c) {
@@ -19,5 +21,25 @@ public:
             a>>=1 ; b>>=1 ; c>>=1;
         }
         return flip;
+    }
+};
+*/
+
+// Approach 2
+
+class Solution {
+public:
+    int minFlips(int a, int b, int c) {
+        
+         int temp = ((a|b) ^ c);
+        
+        // if both bits are 1 in a and b 
+        // a & b
+        
+        int result1 = (a&b);
+        
+        int result2 =( result1 & temp );
+        
+        return __builtin_popcount(temp) + __builtin_popcount(result2);
     }
 };
