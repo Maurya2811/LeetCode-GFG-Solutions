@@ -1,50 +1,76 @@
-// class Solution {
-// public:
-//     int search(int s, int e,vector<int> &ar){
-//         int ans_idx=-1;
-//         while(s<=e){
-//             int mid= s + (e-s)/2;
-//             if(ar[mid]<0){
-//                 ans_idx =mid;
-//                 e=mid-1;
-//             }
-//             else{
-//                 s=mid+1;
-//             }
-//         }
-//         return ans_idx;
-//     }
-//     int countNegatives(vector<vector<int>>& arr) {
-//         int count =0;
-//         int m=arr.size();
-//         int n=arr[0].size();
-        
-//         for(int i=0;i<m;i++){
-//             int temp = search(0,n-1,arr[i]);
-//             if(temp!=-1){
-//                 count+=n-temp;
-//             }
-//         }
-//         return count;
-//     }
-// };
- class Solution {
+//Approach-1 (Brute Force) - O(m * n)
+//m = rows
+//n = columns
+/*
+class Solution {
 public:
-    
-    int countNegatives(vector<vector<int>>& arr) {
-        int count =0;
-        int row=arr.size()-1;
-        int col=arr[0].size();
-        int n=0;
+    int countNegatives(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
         
-        while(row>=0 && n<col){
-            if(arr[row][n]<0){
-                count+=col-n;
-                row--;
-            }else{
-                n++;
+        int result = 0;
+        
+        for(int i = 0; i<m; i++) {
+            for(int j = 0; j<n; j++) {
+                
+                if(grid[i][j] < 0)
+                    result++;
+                
             }
         }
-        return count;
+        
+        return result;
+    }
+};
+*/
+
+/*
+
+//Approach-2 (Using Binary Search - upper_bound) - SLIGHT OPTIMAL - O(m * log(n))
+//m = rows
+//n = columns
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        
+        int result = 0;
+        
+        for(auto &vec : grid) {
+            
+            int idx = upper_bound(begin(vec), end(vec), 0, greater<int>()) - begin(vec);
+            
+            result += n-idx;
+            
+        }
+        
+        return result;
+    }
+};
+
+*/
+//Approach-3 (Using the sorted proprrty) - O(m+n) - OPTIMAL
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        
+        int row = m-1;
+        int col = 0;
+        
+        int result = 0;
+        while( row >= 0 && col < n) {
+            
+            if(grid[row][col] < 0) {
+                result += n-col;
+                row--;
+            } else {
+                col++;
+            }
+        }
+        
+        return result;
     }
 };
