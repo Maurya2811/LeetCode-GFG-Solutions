@@ -10,10 +10,10 @@ public:
                i++;
             }
             if(start!=nums[i]){
-                vec.push_back((to_string)(start) + "->" + (to_string)(nums[i]));
+                vec.push_back(to_string(start) + "->" + to_string(nums[i]));
             }
             else{
-                vec.push_back((to_string)(start));
+                vec.push_back(to_string(start));
             }
         }
         return vec;
