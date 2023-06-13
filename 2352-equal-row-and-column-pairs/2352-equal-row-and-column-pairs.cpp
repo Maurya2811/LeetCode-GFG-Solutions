@@ -10,6 +10,7 @@ public:
                 for(int k=0;k<n;k++){
                     if(grid[i][k]!=grid[k][j]){
                         flag = false;
+                        break;
                     }
                 }
                 if(flag){
