@@ -1,40 +1,37 @@
 // // BFS
-// class Solution {
-// public:
-//     int maxLevelSum(TreeNode* root) {
-//         queue<TreeNode*> que;
-//         que.push(root);
-//         int resultLevel=0;
-//         int currLevel =0;
-//         int maxSum=INT_MIN;
-       
-//         while(!que.empty()){
-//             int n=que.size();
-//             int sum=0;
-//             while(n--){
-                
-//                 TreeNode* temp = que.front();
-//                 que.pop();
-//                 sum += temp->val;
-//                 if(temp->left)
-//                 que.push(temp->left);
-//                 if(temp->right)
-//                 que.push(temp->right);
-                
-//             }
-//             currLevel++;
-            
-//             if(sum> maxSum){
-//                 maxSum = sum;
-//                 resultLevel=currLevel;
-//             }
-            
-//         }
-//         return resultLevel;
-//     }
-// };
+class Solution {
+public:
+    int maxLevelSum(TreeNode* root) {
+        queue<TreeNode*> q;
+        q.push(root);
+
+        int maxi=INT_MIN, lvl=0, res=0;
+
+        while(!q.empty()){
+            lvl++;
+            int size=q.size();
+            int sum=0;
+            for(int i=0; i<size; i++){
+                auto node=q.front();
+                q.pop();
+                sum+=node->val;
+
+                if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
+            }
+
+            if(sum>maxi){
+                res=lvl;
+                maxi=sum;
+            }
+        }
+
+        return res;
+    }
+};
 
 // DFS
+/*
 class Solution {
 public:
     map<int,int> mp;
@@ -66,3 +63,4 @@ public:
         return finalLevel;
     }
 };
+*/
