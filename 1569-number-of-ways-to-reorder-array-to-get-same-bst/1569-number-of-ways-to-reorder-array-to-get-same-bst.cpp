@@ -1,7 +1,7 @@
 class Solution {
 public:
-    // typedef long long ll;
-    #define ll long long
+    typedef long long ll;
+    // #define ll long long
     ll MOD = 1e9 + 7;
     vector<vector<ll>>PT;
     
