@@ -18,7 +18,7 @@ public:
             int i_ = i+ dir[0];
             int j_ = j+ dir[1];
             if(isSafe(i_,j_) && grid[i_][j_]<grid[i][j])
-            answer = answer + dfs(grid,i_,j_);
+            answer = (answer + dfs(grid,i_,j_))%MOD;
         }
         
         return t[i][j]=(answer)%MOD;
@@ -30,7 +30,7 @@ public:
        int result =0;
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                 result =( (result%MOD) + dfs(grid,i,j))%MOD;
+                 result =( (result) + dfs(grid,i,j))%MOD;
             }
         }
         return result%MOD;
