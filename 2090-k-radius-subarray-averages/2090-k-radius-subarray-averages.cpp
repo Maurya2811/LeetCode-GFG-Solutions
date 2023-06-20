@@ -16,10 +16,9 @@ public:
         
         avg[k]= sum/(2*k+1);
        
-        for(int x: avg)
-            cout<< x<<" ";  
-        if(n==3)
-            return avg;
+       
+//         if(n==3)
+//             return avg;
       
         
         for(int i=k+1;i<n-k;i++){
