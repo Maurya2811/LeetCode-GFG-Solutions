@@ -4,7 +4,7 @@ public:
     int ans = INT_MAX ;
     
     void solve(vector<int>& cookies,vector<int>&child, int k,int j){
-        if(j>=n){
+        if(j==n){
             int maxm = INT_MIN;
             for(int i=0;i<k;i++){
                 maxm = max(maxm,child[i]);
@@ -20,6 +20,11 @@ public:
             child[i]+=cookie ;
             solve(cookies,child,k,j+1);
             child[i]-=cookie;
+            
+            
+  //// Important Line
+        if(child[i]==0) break;
+
         }
 
     }
