@@ -32,14 +32,14 @@ public:
                 swapNeed.push_back(i);
             }
         }
-        cout<<swapNeed.size();
-        if(swapNeed.size()==2){
-            swap(s[swapNeed[0]],s[swapNeed[1]]);
-                   if(s==goal)
-                   return true;
-                   else return false;
-        }
-                   return false;
+      if(swapNeed.size() != 2)
+            return false;
+        
+        int first  = swapNeed[0];
+        int second = swapNeed[1];
+        
+        swap(s[first], s[second]);
+        return s==goal;       
             
     }
 };
