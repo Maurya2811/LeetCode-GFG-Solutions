@@ -1,12 +1,9 @@
 // 2 Approaches 
+ // /*    
+// Approach 1 Using Stack
 class Solution {
-public:
-    
-      // 1 Approach
-    
+public:  
    bool isValid(string s) {
-      /*  
-       // Approach 1 Using Stack
           stack<char> st;
         for(auto &ch: s){
             if(st.empty() || ch=='(' || ch=='{' || ch=='['){
@@ -23,13 +20,18 @@ public:
             else if(ch==']' && st.top()!='[')
                 return false;
             else 
-                 st.pop();
-                
+                 st.pop();           
         }
         return st.empty();
-        */
-       
-       // 2 Approach
+    }
+};
+// */
+
+    // 2 Approach
+class Solution {
+public: 
+   bool isValid(string s) {
+     
         stack<char> st;
           for(auto &ch: s){
               if(ch=='(')
@@ -44,6 +46,10 @@ public:
                   st.pop();
               
           }
-       return st.empty();
+         return st.empty();
+      
     }
 };
+// */
+    
+ 
