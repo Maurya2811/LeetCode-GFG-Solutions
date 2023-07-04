@@ -9,8 +9,9 @@ public:
                  if(x & temp){
                      countOnes++;
                  }
-                 else
-                     countZeros++;
+                 // else
+                 //     countZeros++;
+//                  we dont need count of zeros only count of one is sufficient
              }
              if(countOnes%3==1){
                  ans = ans | temp;
