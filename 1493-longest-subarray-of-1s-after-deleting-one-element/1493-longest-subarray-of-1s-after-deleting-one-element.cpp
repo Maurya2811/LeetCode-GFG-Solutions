@@ -1,5 +1,5 @@
 // Brute Force
-
+/*
 class Solution {
 public:
     int n;
@@ -41,10 +41,43 @@ public:
        return zeroCount==0 ? n-1 : result;
     }
 };
+*/
 
-// class Solution {
-// public:
-//     int longestSubarray(vector<int>& nums) {
+
+// Better Appraoch
+
+class Solution {
+public:
+    int n=0;
+    
+    int longestSubarray(vector<int>& nums) {
         
-//     }
-// };
+        n= nums.size();
+        int zeroCount=0,maxLen =0;
+        int i=0,currLen=0;
+        for(int j=0;j<n;j++){
+            if(nums[j]==0){
+                zeroCount++;
+                while(zeroCount >1){
+                   
+                    if(nums[i]==0)
+                        zeroCount--;
+                     i++;
+                }
+               
+            }
+         currLen = j-i;
+          maxLen = max(maxLen,currLen);
+        }
+        return maxLen;
+        
+    }
+};
+/*
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        
+    }
+};
+*/
