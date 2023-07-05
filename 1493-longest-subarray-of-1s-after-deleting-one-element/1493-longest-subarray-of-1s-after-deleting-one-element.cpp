@@ -44,8 +44,8 @@ public:
 */
 
 
-// Better Appraoch
-
+// 2nd Sliding Window Appraoch
+/*
 class Solution {
 public:
     int n=0;
@@ -73,11 +73,26 @@ public:
         
     }
 };
-/*
+*/
+// Best Appraoch
 class Solution {
 public:
+     int n=0; 
     int longestSubarray(vector<int>& nums) {
         
+        n= nums.size();
+        int lastZeroIdx=-1,maxLen =0;
+        int currLen=0;
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]==0){
+               j= lastZeroIdx+1;
+                lastZeroIdx=i;
+            }
+            currLen = i-j;
+          maxLen = max(maxLen,currLen);
+        }
+        return maxLen;
     }
 };
-*/
+// */
