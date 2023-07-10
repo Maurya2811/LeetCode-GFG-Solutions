@@ -1,7 +1,7 @@
  // Using BFS
 
 // Use this type of BFS when minimum depth is needed
-/*
+// /*
 class Solution {
 public:
     int minDepth(TreeNode* root) {
@@ -34,8 +34,12 @@ public:
         return -1;
     }
 };
-*/
+// */
+
+
 // Using DFS
+
+/*
 class Solution {
 public:
     int minDepth(TreeNode* root) {
@@ -50,6 +54,8 @@ public:
         return 1 + min(left_depth ,right_depth);
     }
 };
+/
+*/
 
 
 
