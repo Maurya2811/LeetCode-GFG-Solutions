@@ -24,7 +24,7 @@ class Solution
                 
                 count++;
                 if(count==k)
-                return (matrix[left][i]);
+                return (matrix[top][i]);
             }
                top++;
     
