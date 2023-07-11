@@ -8,12 +8,12 @@ class Solution
 {
     public:
     /*You are required to complete this method*/
-    int findK(int matrix[MAX][MAX],int n,int m,int k)
+    int findK(int matrix[MAX][MAX],int m,int n,int k)
     {
  		// Your code goes here.
  		
  	      int top=0,left=0;
-        int down=n-1,right=m-1;
+        int down=m-1,right=n-1;
         vector<int> arr;
          int direction=0;
          int count=0;
