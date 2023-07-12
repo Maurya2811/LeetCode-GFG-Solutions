@@ -7,7 +7,7 @@ using namespace std;
 class Solution{
     public:
     //You need to complete this fucntion
-     int mod = 1000000007;
+     int mod = 1e9+7;
     long long power(int N,int R)
     {
          if(R==1)return N%mod;
