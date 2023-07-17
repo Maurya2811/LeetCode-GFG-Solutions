@@ -49,10 +49,9 @@ public:
             sum=carry;
             
         }
-        while(carry) {
+        if(carry) {
             ListNode* newNode = new ListNode(carry,ans);
              ans=newNode;
-            carry/=10;
         }
         return ans;
     }
