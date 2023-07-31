@@ -5,16 +5,17 @@ public:
         if(i>=s1.length() && j>=s2.length()){
             return 0;
         }
-        if(i>=s1.length())
-            return s2[j]+solve(i,j+1,s1,s2);
         
-        if(j>=s2.length())
-            return s1[i]+solve(i+1,j,s1,s2);
-        
+           
         if(dp[i][j]!=-1)
             return dp[i][j];
         
+        if(i>=s1.length())
+            return dp[i][j] = s2[j]+solve(i,j+1,s1,s2);
         
+        if(j>=s2.length())
+            return dp[i][j] = s1[i]+solve(i+1,j,s1,s2);
+     
         int sum = 0;
         
         if(s1[i]!=s2[j])
