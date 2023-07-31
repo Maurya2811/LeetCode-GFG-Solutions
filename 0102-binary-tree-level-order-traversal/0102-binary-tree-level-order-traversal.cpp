@@ -10,12 +10,10 @@ public:
           queue<TreeNode*> q;
           q.push(root);
         
-        while(1){
+        while(q.size()){
             int size = q.size();
-              if(size==0)
-                  return ans;
               vector<int> vec;
-               while(size--){
+               for(int i=0;i<size;i++){
                      TreeNode* temp = q.front();
                        q.pop();
                      vec.push_back(temp->val);
