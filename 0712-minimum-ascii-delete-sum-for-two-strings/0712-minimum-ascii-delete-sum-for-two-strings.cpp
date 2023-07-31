@@ -1,3 +1,10 @@
+/*
+  ****************Similar Qns :
+                      Edit Distance-   https://leetcode.com/problems/edit-distance/
+  Delete Operation for Two Strings -   https://leetcode.com/problems/delete-operation-for-two-strings/
+
+*/
+
 class Solution {
 public:
     int dp[1001][1001];
