@@ -38,6 +38,45 @@ struct Node
  */
 
 
+// class Solution
+// {
+//     public:
+//     //Function to return the level order traversal of a tree.
+//     vector<int> levelOrder(Node* root)
+//     {
+//          if(!root)
+//             return {};
+        
+//           vector<int> ans;
+//           queue<Node*> q;
+//           q.push(root);
+        
+//         while(q.size()){
+//             int size = q.size();
+//                 vector<int> vec;
+//               for(int i=0;i<size;i++){
+//                   Node* temp = q.front();
+//                           q.pop();
+//                      vec.push_back(temp->data);
+                   
+//                   if(temp->left){
+//                       q.push(temp->left);
+//                   }
+//                     if(temp->right){
+//                       q.push(temp->right);
+//                   }
+                  
+//               }
+//           for(int x: vec){
+//               ans.push_back(x);
+//           }
+                
+//         }
+        
+        
+//         return ans;
+//     }
+// };
 class Solution
 {
     public:
@@ -57,7 +96,7 @@ class Solution
               for(int i=0;i<size;i++){
                    Node* temp = q.front();
                           q.pop();
-                     vec.push_back(temp->data);
+                     ans.push_back(temp->data);
                    
                    if(temp->left){
                        q.push(temp->left);
@@ -67,9 +106,9 @@ class Solution
                    }
                   
                }
-           for(int x: vec){
-               ans.push_back(x);
-           }
+        //   for(int x: vec){
+        //       ans.push_back(x);
+        //   }
                 
         }
         
