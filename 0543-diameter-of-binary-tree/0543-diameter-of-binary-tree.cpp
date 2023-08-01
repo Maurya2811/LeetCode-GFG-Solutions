@@ -33,7 +33,7 @@ public:
         int op2 =  maxDia(root->right);
         Max =  max(Max,op1+op2);
         
-        return max(op1+1,op2+1);
+        return  1 + max(op1,op2);
     }
     
     int diameterOfBinaryTree(TreeNode* root) {
