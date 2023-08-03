@@ -100,9 +100,6 @@ int main()
 
 // } Driver Code Ends
 
-
-
-
   bool solve(Node* root, int &k, int p,int &temp){
       if(root == NULL)
 		return false;
