@@ -1,6 +1,6 @@
 # Kth Ancestor in a Tree
 ## Medium
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a binary tree of size&nbsp; <strong>N</strong>,&nbsp;a <strong>node,</strong> and a positive integer <strong>k</strong>., Your task is to complete the function <strong>kthAncestor()</strong>, the function should return the <strong>kth</strong> ancestor of the given node in the binary tree. If there does not exist any such ancestor then return&nbsp;-1.<br><strong>Note</strong>: It is guaranteed that the <strong>node</strong> exists in the tree.</span></p>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a binary tree of size&nbsp; <strong>N</strong>,&nbsp;a <strong>node,</strong> and a positive integer <strong>k</strong>., Your task is to complete the function <strong>kthAncestor()</strong>, the function should return the <strong>kth</strong> ancestor of the given node in the binary tree. If there does not exist any such ancestor then return&nbsp;-1.<br><strong>Note</strong>: <br>1. It is guaranteed that the <strong>node</strong> exists in the tree.<br>2. All the nodes of the tree have distinct values.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;">
 <img style="height: 230px; width: 287px;" src="https://contribute.geeksforgeeks.org/wp-content/uploads/reverse.jpg" alt="">
