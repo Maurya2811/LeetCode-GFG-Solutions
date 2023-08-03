@@ -100,22 +100,42 @@ int main()
 
 // } Driver Code Ends
 
-void help(Node *root,int k,int node,int &ans, vector<int> &temp){
-    if(!root)return;
-    if(root->data==node && temp.size()>=k){
-        ans = temp[temp.size()-k];
-        return;
-    }
-    temp.push_back(root->data);
-    help(root->left,k,node,ans,temp);
-    help(root->right,k,node,ans,temp);
-    temp.pop_back();
+
+
+
+  bool solve(Node* root, int &k, int p,int &temp){
+      if(root == NULL)
+		return false;
+
+	if(root->data == p) {
+		return true;
+	}
+
+     
+	bool leftAns = solve(root->left, k , p,temp);
+	bool rightAns = solve(root->right, k , p,temp);
+	
+	 
+	//wapas aare honge
+	//check left ya right me answer mila ya anhi
+	if(leftAns || rightAns)
+		k--;
+		
+	if(k == 0) {
+// 		cout << "Answer: " << root->data << endl;
+        temp = root->data;
+		k = -1; 
+	}
+		
+
+	return leftAns || rightAns;
+	
 }
+  
 int kthAncestor(Node *root, int k, int node)
 {
-    // Code here
-    vector<int> temp;
-    int ans=-1;
-    help(root,k,node,ans,temp);
-    return ans;
+    int temp=-1;
+    solve(root,k,node,temp);
+    
+    return temp;
 }
