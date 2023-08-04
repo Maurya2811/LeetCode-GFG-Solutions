@@ -2,8 +2,9 @@ class Solution {
 public:
      
     int n;
+    unordered_set<string> st;
     int dp[301];
-    bool solve(string &s,unordered_set<string> &st,int idx){
+    bool solve(string &s,int idx){
         if(idx>=n){
             return true;
         }
@@ -11,12 +12,12 @@ public:
               return dp[idx];
         
         if(st.find(s.substr(idx))!=st.end())
-            return true;
+            return dp[idx]=true;
         
         for(int i=1;i<=n;i++){
             
             string temp = s.substr(idx,i);
-            if(st.find(temp)!=st.end() && solve(s,st,idx+i)){
+            if(st.find(temp)!=st.end() && solve(s,idx+i)){
                 return dp[idx]= true;
             }       
         }
@@ -26,7 +27,7 @@ public:
     
     bool wordBreak(string s, vector<string>& wordDict) {
         n = s.length();
-        unordered_set<string>st;
+       
         for(string word: wordDict){
             st.insert(word);
         }
@@ -36,7 +37,7 @@ public:
       memset(dp,-1,sizeof(dp));
         
         
-        return solve(s,st,0);
+        return solve(s,0);
         
     }
 };
