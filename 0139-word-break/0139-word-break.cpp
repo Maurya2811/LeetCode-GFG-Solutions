@@ -3,12 +3,16 @@ public:
      
     int n;
     int dp[301];
-    bool solve(string &s,unordered_set<string> &st,int idx ){
+    bool solve(string &s,unordered_set<string> &st,int idx){
         if(idx>=n){
             return true;
         }
           if(dp[idx]!=-1)
               return dp[idx];
+        
+        if(st.find(s.substr(idx))!=st.end())
+            return true;
+        
         for(int i=1;i<=n;i++){
             
             string temp = s.substr(idx,i);
