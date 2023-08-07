@@ -3,7 +3,7 @@ class Solution {
 public:
     int n;
     unordered_map<int,int> mp;
-    int findPos(vector<int>& inorder,int inStart,int inEnd ,int val){
+//     int findPos(vector<int>& inorder,int inStart,int inEnd ,int val){
         
         // for(int i=inStart;i<=inEnd;i++){
         //     if(inorder[i]==val){
@@ -11,17 +11,15 @@ public:
         //     }
         // }
         // return -1;
-        
-        return mp[val];
-    }
+//     }
       TreeNode* solve(vector<int>& preorder, vector<int>& inorder,int &preIndex,int inStart,int inEnd){
           if(preIndex >= n || inStart>inEnd){
               return NULL;
           }
           int data = preorder[preIndex++];
           TreeNode* node = new TreeNode(data);
-          int pos = findPos(inorder,inStart,inEnd,data);
-          
+          // int pos = findPos(inorder,inStart,inEnd,data);
+           int pos = mp[data];       
           node->left = solve(preorder,inorder,preIndex, inStart, pos-1);
           node->right = solve(preorder,inorder,preIndex, pos+1,inEnd);
           
