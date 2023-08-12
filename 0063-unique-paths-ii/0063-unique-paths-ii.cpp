@@ -1,43 +1,27 @@
-//Approach-1 (Recursion + Memo)
-//Recursion T.C : O(2^(m*n))
-//Memo T.C      : O(m*n)
 class Solution {
 public:
-    int m, n;
-    int t[101][101];
-    
-    int solve(vector<vector<int>>& obstacleGrid, int i, int j) {
-        
-        if(i < 0 || i >= m || j < 0 || j >= n || obstacleGrid[i][j] != 0) {
-            return 0;
-        }
-        
-        if(t[i][j] != -1)
-            return t[i][j];
-        
-        if(i == m-1 && j == n-1)
+    int m,n;
+    int dp[101][101];
+    int solve(int i,int j,vector<vector<int>>& grid){
+        if(i>=m || i<0 || j>=n || j<0 || grid[i][j]==1)
+            return  0;
+        if(i==m-1 && j==n-1)
             return 1;
         
-        //Why we are not making [i][j] visited ?
-        //Because robot can only move down or right so it will never visit any visited cell again
-        //int temp = obstacleGrid[i][j];
-        //obstacleGrid[i][j] = -1;
+        if(dp[i][j]!=-1)
+            return dp[i][j];
         
-        int right = solve(obstacleGrid, i, j+1);
-        int down  = solve(obstacleGrid, i+1, j);
+        int right = solve(i,j+1,grid);
+        int down = solve(i+1,j,grid);
         
-        //obstacleGrid[i][j] = temp;
         
-        return t[i][j] = right + down;
-        
+        return dp[i][j]= right+down;
     }
-    
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        
+        memset(dp,-1,sizeof(dp));
         m = obstacleGrid.size();
         n = obstacleGrid[0].size();
-        
-        memset(t, -1, sizeof(t));
-        
-        return solve(obstacleGrid, 0, 0);
+        return solve(0,0,obstacleGrid);
     }
 };
