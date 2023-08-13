@@ -28,13 +28,15 @@ public:
 */
 
 // Bottom UP
+
+/*
 class Solution {
 public:
     
     int longestCommonSubsequence(string text1, string text2) {
         int  n1 = text1.length();
        int n2 = text2.length();
-        vector<vector<int>> dp(n1+1,vector<int>(n2+1));
+        vector<vector<int>> dp(n1+1,vector<int>(n2+1,0));
         
         for(int j=0;j<=n2;j++){
             dp[0][j]=0;
@@ -52,5 +54,36 @@ public:
             }
         }
         return dp[n1][n2];
+    }
+};
+
+*/
+
+// Bottom UP 
+  // Space Optimized
+class Solution {
+public:
+    
+    int longestCommonSubsequence(string text1, string text2) {
+        int  n1 = text1.length();
+       int n2 = text2.length();
+        vector<int> curr(n2+1,0);
+        vector<int> prev(n2+1,0);
+        
+        for(int i=0;i<=n2;i++){
+            prev[i]=0;
+        }
+       
+        
+        for(int i=1;i<=n1;i++){
+            for(int j=1;j<=n2;j++){
+               if(text1[i-1]==text2[j-1]) curr[j] = 1 + prev[j-1];
+                
+                else
+                    curr[j] = max(prev[j], curr[j-1]);
+            }
+            prev = curr;
+        }
+        return prev[n2];
     }
 };
