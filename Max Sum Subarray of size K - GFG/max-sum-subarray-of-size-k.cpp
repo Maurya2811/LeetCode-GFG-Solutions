@@ -12,15 +12,12 @@ public:
         
         while(j<N){
             sum += arr[j];
-            if(j-i+1 < k)
-             j++;
-              
-            else if(j-i+1==k){
+             if(j-i+1==k){
                 mx = max(sum,mx);
                 sum-=arr[i];
                 i++;
-                j++;
             }
+            j++;
         }
         return mx;
     }
