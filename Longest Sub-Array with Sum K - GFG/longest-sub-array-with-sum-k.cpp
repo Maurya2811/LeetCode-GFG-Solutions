@@ -5,6 +5,7 @@ using namespace std;
 
 // } Driver Code Ends
 
+// Using Prefix SUM
 class Solution{
     public:
     int lenOfLongSubarr(int arr[],  int n, int k) 
@@ -15,16 +16,11 @@ class Solution{
         int j=0,i=0;
         while(j<n){
             sum += arr[j];
-            // while(sum>k){
-            //     sum -= arr[i];
-            //     i++;
-            // }
+      
             if(sum == k){
                 maxi = max(maxi,j-i+1);
             }
-            // if(mp.find(sum-k)!=mp.end()){
-            //     maxi = max(maxi, j - mp[sum-k] );
-            // }
+          
               if(mp.find(sum-k)!=mp.end())      {
                 int len=j-mp[sum-k];
                 if(len>maxi) maxi=len;
