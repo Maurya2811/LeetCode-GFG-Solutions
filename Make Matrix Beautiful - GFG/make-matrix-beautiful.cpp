@@ -15,19 +15,15 @@ class Solution
        long long maxSum =0;
        int count =0;
        for(int i=0;i<n;i++){
-           long long sum =0;
+           long long rowSum =0,colSum=0;
            for(int j=0;j<n;j++){
-               sum+= matrix[i][j];
+               rowSum+= matrix[i][j];
+               colSum+= matrix[j][i];
            }
-           maxSum = max(maxSum,sum);
+             maxSum = max({maxSum,rowSum,colSum});
+           
        }
-        for(int i=0;i<n;i++){
-           long long sum =0;
-           for(int j=0;j<n;j++){
-               sum+= matrix[j][i];
-           }
-           maxSum = max(maxSum,sum);
-       }
+        
         for(int i=0;i<n;i++){
            long long sum =0;
            for(int j=0;j<n;j++){
