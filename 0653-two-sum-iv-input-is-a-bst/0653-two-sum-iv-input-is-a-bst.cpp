@@ -1,14 +1,6 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+//Approach 1 
+// Using InOrder Traversal and TwoPointer Approach
+/*
 class Solution {
 public:
     
@@ -39,5 +31,29 @@ public:
             }
         }
         return false;
+    }
+};
+*/
+
+// 2nd Approach
+// using HashSet and InOrderTraversal
+class Solution {
+public:
+     unordered_set<int> hash;
+    
+    bool findTarget(TreeNode* root, int k) {
+        if(root==NULL)
+            return false;
+        
+         if(findTarget(root->left,k)==true)
+           return true;
+        if(hash.find(k-root->val)!=hash.end())
+        return true;
+        else{
+            hash.insert(root->val);
+            
+            return findTarget(root->right,k);
+        }
+       
     }
 };
