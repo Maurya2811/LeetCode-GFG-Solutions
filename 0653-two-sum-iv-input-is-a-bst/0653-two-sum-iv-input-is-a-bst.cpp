@@ -41,17 +41,15 @@ class Solution {
 public:
      unordered_set<int> hash;
     
-    bool findTarget(TreeNode* root, int k) {
-         if(root==NULL)
-            return false;
+    int findTarget( TreeNode *root, int sum)
+    {
+        if(root==nullptr) return 0;
         
-         if(findTarget(root->left,k)==true)
-           return true;
-         if(hash.find(k-root->val)!=hash.end())
-                return true;
-         else
-            hash.insert(root->val);
-        
-            return findTarget(root->right,k);
+        if(hash.find(sum-(root->val))!=hash.end()) return 1;
+        else
+        {
+            hash.insert({root->val});
+        }
+       return  findTarget(root->left , sum) || findTarget(root->right , sum);
     }
 };
