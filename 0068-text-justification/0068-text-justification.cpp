@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int MaxWidth,n;
+    int MaxWidth;
     
    
     string findLine(int &i,int &j,int &eachGaddheSpace,int extraSpace,vector<string> &words){
@@ -29,7 +29,7 @@ public:
     
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
            MaxWidth =maxWidth;
-           n = words.size();
+          int n = words.size();
         vector<string> result;
         
         int i=0;
