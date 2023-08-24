@@ -42,15 +42,15 @@ public:
      unordered_set<int> hash;
     
     bool findTarget(TreeNode* root, int k) {
-        if(root==NULL)
+         if(root==NULL)
             return false;
-        if(hash.find(k-root->val)!=hash.end())
-        return true;
-        else{
-            hash.insert(root->val);
-        }
+        
          if(findTarget(root->left,k)==true)
            return true;
+         if(hash.find(k-root->val)!=hash.end())
+                return true;
+         else
+            hash.insert(root->val);
         
             return findTarget(root->right,k);
     }
