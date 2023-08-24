@@ -44,16 +44,14 @@ public:
     bool findTarget(TreeNode* root, int k) {
         if(root==NULL)
             return false;
-        
-         if(findTarget(root->left,k)==true)
-           return true;
         if(hash.find(k-root->val)!=hash.end())
         return true;
         else{
             hash.insert(root->val);
-            
-            return findTarget(root->right,k);
         }
-       
+         if(findTarget(root->left,k)==true)
+           return true;
+        
+            return findTarget(root->right,k);
     }
 };
