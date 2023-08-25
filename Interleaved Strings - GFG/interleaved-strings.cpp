@@ -46,8 +46,8 @@ class Solution{
     {
       n= a.length(),m = b.length(), N= c.length();
       
-    //   if(n+m != N)
-    //   return false; 
+      if(n+m != N)
+      return false; 
     
       memset(dp,-1,sizeof(dp));
       return solve(0,0,a,b,c);
