@@ -16,7 +16,7 @@ public:
     
     // Please Note that the index is passed by reference 
     
-    TreeNode* solve(int &i,vector<int> &preorder, int mini, int maxi){
+    TreeNode* solve(int &i,vector<int> &preorder, int &mini, int &maxi){
         if(i>=n)
             return NULL;
         
@@ -33,6 +33,8 @@ public:
     TreeNode* bstFromPreorder(vector<int>& preorder) {
          n = preorder.size();
         int i=0;
-        return solve(i,preorder,INT_MIN,INT_MAX);
+        int mini = INT_MIN;
+        int maxi = INT_MAX;
+        return solve(i,preorder,mini,maxi);
     }
 };
