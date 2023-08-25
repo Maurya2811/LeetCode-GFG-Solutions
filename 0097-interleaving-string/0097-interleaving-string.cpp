@@ -14,12 +14,12 @@ public:
             return dp[i][j] =  false;
         
         bool result = false;
-        if(s1[i]==s3[i+j]){
+        if(i<n && s1[i]==s3[i+j]){
              result = solve(i+1,j,s1,s2,s3);
         }
         if(result)
             return  dp[i][j] = result;
-        if(s2[j]==s3[i+j]){
+        if(j<m && s2[j]==s3[i+j]){
             result = solve(i,j+1,s1,s2,s3);
         }
         
