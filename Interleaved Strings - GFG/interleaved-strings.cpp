@@ -28,14 +28,14 @@ class Solution{
         return dp[i][j];
         bool result = false;
        
-        if( (a[i]==c[i+j]) || a[i]==' ' ){
+        if( a[i]==c[i+j] ){
             result = solve(i+1,j,a,b,c);
         }
         if(result){
             return dp[i][j] = true;
         }
         
-        if( (b[j]==c[i+j] || b[j]==' ')){
+        if( b[j]==c[i+j] ){
             result = solve(i,j+1,a,b,c);
         }
         
