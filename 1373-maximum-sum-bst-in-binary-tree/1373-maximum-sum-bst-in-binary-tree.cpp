@@ -45,19 +45,17 @@ public:
       
            
              
-      if(leftAns->validBST && rightAns->validBST ){
-         if(root->val > leftAns->maxi && root->val< rightAns->mini){
+      if(leftAns->validBST && rightAns->validBST && 
+         root->val > leftAns->maxi && root->val< rightAns->mini ){
+         
              currentAns->validBST = true;
              currentAns->maxi = max(root->val,rightAns->maxi);
              currentAns->mini = min(root->val,leftAns->mini);
              currentAns->sum= root->val+ leftAns->sum + rightAns->sum;
              maxi = max(maxi,currentAns->sum);
-            }else{
-               currentAns->validBST = false;
-         }
-      }
-    else{
-          currentAns->validBST = false;        
+            }
+          else{
+               currentAns->validBST = false;  
       }
       
       return currentAns;
