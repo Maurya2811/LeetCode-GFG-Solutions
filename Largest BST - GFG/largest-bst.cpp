@@ -100,13 +100,9 @@ struct Node {
 };*/
 
 
-
-class Solution{
+  class Nodedata {
     public:
     
-    
-    class Nodedata {
-    public:
     bool validBST;
     int maxi ;
     int mini;
@@ -123,6 +119,8 @@ class Solution{
             this->size=size;
         }
 };
+class Solution{
+    public:
       Nodedata* findLargerBST(Node* root,int &maxi){
           if(root==NULL){
               Nodedata* node = new Nodedata(true,INT_MIN,INT_MAX,0);
@@ -136,26 +134,20 @@ class Solution{
       
            
              
-      if(leftAns->validBST && rightAns->validBST ){
-         if(root->data > leftAns->maxi && root->data< rightAns->mini){
+      if(leftAns->validBST && rightAns->validBST &&
+      root->data > leftAns->maxi && root->data< rightAns->mini){
+        
              currentAns->validBST = true;
              currentAns->maxi = max(root->data,rightAns->maxi);
              currentAns->mini = min(root->data,leftAns->mini);
              currentAns->size= 1+ leftAns->size + rightAns->size;
              maxi = max(maxi,currentAns->size);
-            }else{
-               currentAns->validBST = false;
+             
+      }
+      else{
+             currentAns->validBST = false;
          }
-      }
-    else{
-          currentAns->validBST = false;
-            //  currentAns->maxi = max(root->data,leftAns->maxi);
-            //  currentAns->mini = min(root->data,rightAns->mini);
-            //  currentAns->size= 1+ leftAns->size + rightAns->size;
-      }
-      
       return currentAns;
-      
     }
     int largestBst(Node *root)
     {
