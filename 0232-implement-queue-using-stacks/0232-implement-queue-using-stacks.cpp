@@ -1,44 +1,43 @@
 class MyQueue {
 public:
     
-    // Stack 1 will do push Only
-    // Stack 2 will do pop and peek operation
+//    Amortized O(1) ==> Most of the Operation is O(1) and very few time O(n);
     
-    stack<int> st1;    
-    stack<int> st2;
-
+    stack<int> input;
+    stack<int> output;
+    int peekEle ;
     MyQueue() {
         
     }
     
     void push(int x) {
-         while(!st2.empty()){
-            st1.push(st2.top());
-            st2.pop();
-        }
-        st1.push(x);
+       if(input.empty()){
+           peekEle =x;
+       }
+           input.push(x);
     }
     
     int pop() {
-        while(!st1.empty()){
-            st2.push(st1.top());
-            st1.pop();
+        if(output.empty()){
+            while(!input.empty()){
+                output.push(input.top());
+                input.pop();
+            }
         }
-        int temp = st2.top();
-        st2.pop();
+        int temp= output.top();
+        output.pop();
         return temp;
     }
     
     int peek() {
-         while(!st1.empty()){
-            st2.push(st1.top());
-            st1.pop();
+        if(!output.empty()){
+            return output.top();
         }
-       return st2.top();
+        return peekEle;
     }
     
     bool empty() {
-        return st1.empty() && st2.empty();
+        return input.empty() && output.empty();
     }
 };
 
