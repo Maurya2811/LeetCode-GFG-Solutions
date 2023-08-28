@@ -1,13 +1,16 @@
+
+
 class MyStack {
 public:
     queue<int> que;
-    queue<int> temp;
+     // queue<int> temp;
     MyStack() {
         
     }
-    
+ // By using Two Queues
+ /*   
     void push(int x) {
-        temp.push(x);
+         temp.push(x);
                  
         while(!que.empty()){
             temp.push(que.front());
@@ -18,6 +21,17 @@ public:
             temp.pop();
         }
         
+    }
+ */
+    
+ // By using Onr Queue
+    void push(int x){
+        int n= que.size();
+        que.push(x);
+       while(n--){
+           que.push(que.front());
+           que.pop();
+       }
     }
     
     int pop() {
