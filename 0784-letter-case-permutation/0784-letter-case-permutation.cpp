@@ -16,15 +16,22 @@ public:
             solve(idx+1, s, temp+s[idx]);
             return;
         }
-       string temp1 = temp;
-        temp1.push_back(toupper(s[idx]));
+       // string temp1 = temp;
+        // temp1.push_back(toupper(s[idx]));
+        temp.push_back(toupper(s[idx]));
         
-        solve(idx+1, s,temp1 );
+        // solve(idx+1, s,temp1 );
+           solve(idx+1, s,temp );
+
         
-        string temp2 = temp;
-        temp2.push_back(tolower(s[idx]));
+        // string temp2 = temp;
+        // temp2.push_back(tolower(s[idx]));
+
+        temp.pop_back();
+        temp.push_back(tolower(s[idx]));
+
                    
-        solve(idx+1, s, temp2);
+        solve(idx+1, s, temp);
 
     return;
     }
