@@ -4,6 +4,7 @@ using namespace std;
 
 
 // } Driver Code Ends
+
 class Solution{
 public:
   int n;
@@ -14,8 +15,9 @@ public:
             ans.push_back(temp);
             return;
         }
-        
+      if(temp!="")
         solve(idx+1,temp+" "+s[idx],s);
+        
         solve(idx+1,temp+s[idx],s);
         return;
     }
@@ -23,11 +25,13 @@ public:
          n= s.length();
          
          string temp;
-         temp.push_back(s[0]);
-         solve(1,temp,s);
+        //  temp.push_back(s[0]);
+         solve(0,temp,s);
     return ans;
     }
 };
+
+
 
 //{ Driver Code Starts.
 
