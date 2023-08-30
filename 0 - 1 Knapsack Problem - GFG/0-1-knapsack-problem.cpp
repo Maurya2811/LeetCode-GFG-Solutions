@@ -8,28 +8,36 @@ class Solution
 {
     public:
     
-    int arr[1001][1001];
-    
-    int solve(int W, int wt[], int val[], int n){
-        if(n==0 || W == 0)
-       return arr[n][W]=0;
+      int  t[1001][1001];
+      
+      int solve(int W, int wt[], int val[], int n){
+         
+          if(n==0 || W==0)
+           return 0;
+           
+           if(t[W][n]!=-1){
+               return t[W][n];
+           }
+           
+       if(W>=wt[n-1]){
+           return t[W][n]= max(val[n-1] + solve(W-wt[n-1],wt,val,n-1) , solve(W,wt,val,n-1));
+       }
        
-       if(arr[n][W]!=-1)
-       return arr[n][W];
+       else 
+       return t[W][n]= solve(W,wt,val,n-1);
        
-       if(wt[n-1]<=W) 
-        
-       return arr[n][W]=max(val[n-1]+solve(W-wt[n-1],wt,val,n-1) ,solve(W,wt,val,n-1));
-       
-       if(wt[n-1]>W )
-        return arr[n][W]=solve(W,wt,val,n-1);
-    }
-    
-    //Function to return max value that can be put in knapsack of capacity W.
+      }
+      
+      
     int knapSack(int W, int wt[], int val[], int n) 
     { 
-        memset(arr,-1,sizeof(arr));
-             return solve(W,wt,val,n);
+          if(n==0 || W==0)
+           return 0;
+           
+          memset(t,-1,sizeof(t));
+          
+          return solve(W,wt,val,n);
+       
     }
 };
 
