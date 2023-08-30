@@ -4,6 +4,10 @@ using namespace std;
 
 
 // } Driver Code Ends
+
+// Recursion + Memorisation 
+
+/*
 class Solution
 {
     public:
@@ -40,6 +44,47 @@ class Solution
        
     }
 };
+*/
+
+//  Bottom Up Approach
+
+class Solution
+{
+    public:
+   
+    int knapSack(int W, int wt[], int val[], int n) 
+    { 
+          if(n==0 || W==0)
+           return 0;
+           
+            int  t[n+1][W+1] ;
+        
+        for(int i=0;i<n+1;i++){
+            t[i][0]=0;
+        }  
+         for(int j=0;j<W+1;j++){
+            t[0][j]=0;
+        }  
+       
+       // t[n][W] = t[i][j]
+       
+       for(int i=1;i<n+1;i++){
+           for(int j=1;j<W+1;j++){
+               if(j>= wt[i-1])
+               t[i][j] = max(val[i-1]+(t[i-1][j-wt[i-1]]) , t[i-1][j]);
+               else{
+                   t[i][j] = t[i-1][j];
+               }
+           }
+       }
+        
+       
+       return t[n][W];
+       
+    }
+};
+
+
 
 //{ Driver Code Starts.
 
