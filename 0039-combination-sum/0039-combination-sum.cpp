@@ -4,21 +4,21 @@ public:
     vector<vector<int>>ans;
     int n;
      
-   void solve(int i,vector<int> temp,vector<int>& candidates, int target){
+   void solve(int i,vector<int> &temp,vector<int>& candidates, int target){
         if(target==0){
             ans.push_back(temp);
             return;
         }
-         if(i>=n){
-             
-             return;
+         if(i>=n || target<0 ){
+              return;
          }
        
        if(candidates[i]<=target){
            
-           vector<int> temp1 = temp;
-           temp1.push_back(candidates[i]);
-           solve(i,temp1,candidates,target-candidates[i]) ;
+           // vector<int> temp1 = temp;
+           temp.push_back(candidates[i]);
+           solve(i,temp,candidates,target-candidates[i]) ;
+           temp.pop_back();
            
        }
            solve(i+1,temp,candidates,target) ;
@@ -30,7 +30,8 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         
             n= candidates.size();
-           solve(0,{},candidates,target);
+        vector<int> temp;
+           solve(0,temp,candidates,target);
         return ans;
     }
 };
