@@ -17,7 +17,7 @@ public:
           return false;
       }
       if(t[i][j][isTrue]!=-1){
-          return t[i][j][isTrue]%1003;
+          return t[i][j][isTrue];
       }
       if(i==j){
           if(isTrue){
@@ -75,7 +75,7 @@ public:
         
         memset(t,-1,sizeof(t));
         
-        return solve(0,N-1,S,true)%1003;
+        return solve(0,N-1,S,true);
     }
 };
 
