@@ -6,12 +6,12 @@ public:
         
         while(i<=j){
             if(nums[i]==val){
-                count++;
                 swap(nums[i],nums[j--]);
-            }else
-                i++;       
+            }else{
+                i++; 
+                count++;
+            }
         }
-        
-        return nums.size() - count;
+        return count;
     }
 };
