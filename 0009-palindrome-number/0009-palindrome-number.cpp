@@ -6,7 +6,7 @@ public:
         }
         
         int num1=x;
-        long long num2=0;
+        long num2=0;
         
         while(num1){
             num2 = num2*10 + num1%10 ;
