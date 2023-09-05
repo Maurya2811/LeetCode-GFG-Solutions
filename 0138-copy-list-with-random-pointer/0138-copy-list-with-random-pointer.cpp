@@ -20,36 +20,54 @@ public:
         if(!head){
             return head;
         }
+        Node* tempHead = head;
         
-        unordered_map<Node*,Node*> mp;
+      while(tempHead){
+          Node* fwd = tempHead->next;
+          tempHead->next = new Node(tempHead->val);
+          tempHead->next->next = fwd;
+          
+          tempHead = fwd;
+      }
         
-        Node* prevNode =NULL ;
-        Node* head1 = head;
-        Node* head2 = NULL;
+        // Handling Random
+        tempHead = head;
+       
+
         
-        while(head1){
-              Node* temp = new Node(head1->val);
-               if(head2==NULL){
-                   head2= temp;
-                   prevNode = temp;
-               }
-             else{
-                  prevNode->next = temp;
-                  prevNode = temp;
-             }
-            mp[head1] = temp;
-            head1=head1->next;
-        }
-        head1 = head;
-        prevNode = head2;
-        while(head1){
-            if(head1->random){
-               prevNode->random = mp[head1->random];
+        while(tempHead){
+            if(tempHead->random)
+            tempHead->next->random = tempHead->random->next;
+            
+            if(tempHead->next){
+                tempHead = tempHead->next->next;
             }
-            prevNode= prevNode->next;
-            head1 = head1->next;
+            
         }
         
-       return head2; 
+         Node* currHead = head->next;
+        Node* currNode = currHead;
+        
+         tempHead = head;
+        
+        while(tempHead){
+            
+            if(tempHead->next){
+                tempHead->next=tempHead->next->next;
+            }
+            
+            if(currNode->next){
+                currNode->next = currNode->next->next;
+            }
+            
+            
+            tempHead = tempHead->next;
+            currNode = currNode->next;
+            
+        }
+        
+        
+        
+        return currHead;
     }
 };
