@@ -1,13 +1,3 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * }; 
-*/
 
 class Solution {
 public:
@@ -22,7 +12,6 @@ public:
             temp=temp->next;
         }
         
-        // int parts = ;
         int extraNodes = count%k;
         int node = count/k;
         
@@ -30,7 +19,6 @@ public:
         int i=0;
         temp = head;
         ListNode* prev = NULL;
-        // cout<<count<<" "<<parts;
        
         while(temp){
             int x=node;
@@ -51,16 +39,7 @@ public:
             head=temp;
             
         }
-    //     while(extraNodes){
-    //              if(temp){
-    //                  prev= temp;
-    //                  temp=temp->next;
-    //                  extraNodes--;
-    //               }       
-    //       prev->next=NULL;
-    //         ans[i++]=head; 
-    //         head=temp;
-    // }
+
         return ans;
     }
 };
