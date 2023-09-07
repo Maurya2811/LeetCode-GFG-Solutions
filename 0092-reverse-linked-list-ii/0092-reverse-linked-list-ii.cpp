@@ -1,13 +1,4 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+
 class Solution {
 public:
     
@@ -16,7 +7,7 @@ public:
         dummy->next = head;
         ListNode *prev = dummy; // intialising prev pointer on dummy node
         
-        for(int i = 0; i < left - 1; i++)
+        for(int i = 1; i < left ; i++)
             prev = prev->next; // adjusting the prev pointer on it's actual index
         
         ListNode *curr = prev->next; // curr pointer will be just after prev
