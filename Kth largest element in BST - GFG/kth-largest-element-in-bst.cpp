@@ -107,8 +107,8 @@ class Solution
         K--;
         if(K==0){
             ans = root->data;
-            K=-1;
             return;
+            // K=-1;
         }
         inorder(root->left,K);
     }
