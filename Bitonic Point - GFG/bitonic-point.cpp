@@ -36,10 +36,10 @@ public:
 	            {
 	                return arr[0];
 	            }
-	            else
-	            {
-	                return arr[1];
-	            }
+	           // else
+	           // {
+	           //     return arr[1];
+	           // }
 	        }
 	        else if(mid == n-1)
 	        {
@@ -55,8 +55,7 @@ public:
 	    }
               
               return -1;
-            //   return arr[e]; 
-            // when (s<e)
+           
 	}
 };
 
