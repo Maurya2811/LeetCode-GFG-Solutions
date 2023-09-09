@@ -66,7 +66,7 @@ public:
                    else 
                    h=mid;
              }
-           return arr[l];
+           return arr[h];
 	}
 };
 
