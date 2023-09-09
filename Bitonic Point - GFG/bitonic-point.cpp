@@ -11,34 +11,51 @@ public:
 	
 	int findMaximum(int arr[], int n) {
               
-              int s=0, e = n-1;
+             int l = 0, h = n-1;
+	    while(l <= h)
+	    {
+	        int mid = (l+h)/2;
+	        if(mid > 0 and mid < n-1)
+	        {
+	            if(arr[mid] > arr[mid+1] and arr[mid] > arr[mid-1])
+	            {
+	                return arr[mid];
+	            }
+	            else if(arr[mid + 1] > arr[mid])
+	            {
+	                l = mid+1;
+	            }
+	            else
+	            {
+	                h = mid-1;
+	            }
+	        }
+	        else if(mid == 0)
+	        {
+	            if(arr[0] > arr[1])
+	            {
+	                return arr[0];
+	            }
+	            else
+	            {
+	                return arr[1];
+	            }
+	        }
+	        else if(mid == n-1)
+	        {
+	            if(arr[n-1] > arr[n-2])
+	            {
+	                return arr[n-1];
+	            }
+	            else
+	            {
+	                return arr[n-2];
+	            }
+	        }
+	    }
               
-              while(s<=e){
-                  int mid = s + (e-s)/2;
-                  
-                  if(mid>0 && arr[mid]>arr[mid-1] && mid+1<n && arr[mid]>arr[mid+1])
-                  return arr[mid];
-                  
-                  else if(mid>0 && arr[mid]>arr[mid-1]){
-                      s =  mid+1;
-                  }else if(mid+1<n && arr[mid]>arr[mid+1]){
-                      e= mid-1;
-                  }
-                  else if(mid == 0){
-                      if(arr[0]>arr[1])
-                      return arr[0];
-                      else 
-                      return arr[1];
-                  }else if(mid==n-1){
-                      if(arr[n-1]>arr[n-2])
-                      return arr[n-1];
-                      else 
-                      return arr[n-2];
-                  }
-              }
-              
-            //   return -1;
-              return arr[e]; 
+              return -1;
+            //   return arr[e]; 
             // when (s<e)
 	}
 };
