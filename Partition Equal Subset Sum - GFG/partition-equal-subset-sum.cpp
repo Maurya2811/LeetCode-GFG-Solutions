@@ -10,52 +10,35 @@ using namespace std;
 class Solution{
 public:
 
-  bool subsetSum(int n, int arr[], int sum){
+  
+  int solve(int idx,int arr[],int &N,int sum,  vector<vector<int>>& dp){
+      if(sum==0)return 1;
       
-      if(n==0 && sum ==0 )
-      return true;
+      if(idx>=N || sum<0 )
+      return 0;
       
-      bool t[n+1][sum+1];
-      
-      // Initialization
-      
-      for(int j=0;j<sum+1;j++){
-          t[0][j]=false;
-      }
-      
-      for(int i=0;i<n+1;i++){
-          t[i][0]=true;
-      }
+      if(dp[idx][sum]!=-1)
+      return dp[idx][sum];
+      int ans1 = solve(idx+1,arr,N,sum-arr[idx],dp);
+      int ans2 = solve(idx+1,arr,N,sum,dp);
       
       
-      // tabulation
-      
-      // t[n][sum] == t[i][j]
-      
-      for(int i=1;i<n+1;i++){
-          for(int j=1;j<sum+1 ; j++){
-              if(j>= arr[i-1]){
-                  t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
-              }else
-               t[i][j] =  t[i-1][j];
-          }
-      }
-      
-      return t[n][sum];
+      return dp[idx][sum] = (ans1 || ans2);
   }
-  
-  
     int equalPartition(int N, int arr[])
     {
-        int totalSum =0;
         
-     totalSum =  accumulate(arr,arr+N,0);
-     
-        if((totalSum & 1)==1){
-            return 0;
+        int sum = 0;
+        for(int i=0;i<N;i++){
+            sum+=arr[i];
         }
         
-        return subsetSum(N,arr,totalSum>>1);
+        if(sum&1){
+            return 0;
+        }
+        int ans = sum/2;
+        vector<vector<int>> dp(N+1,vector<int>(ans+1,-1));
+        return solve(0,arr,N,ans,dp);
     }
 };
 
