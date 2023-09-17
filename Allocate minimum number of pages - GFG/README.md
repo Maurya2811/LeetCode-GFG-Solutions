@@ -1,6 +1,6 @@
 # Allocate minimum number of pages
 ## Hard
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You have <strong>N</strong> books, each with <strong>Ai</strong> number of pages. <strong>M</strong> students need to be allocated contiguous books, with each student getting at least one book. Out of all the permutations, the goal is to find the permutation where the student with the most <strong>books </strong>allocated to him gets the minimum number of pages, out of all possible permutations.</span></p>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You have <strong>N</strong> books, each with <strong>A[i]</strong> number of pages. <strong>M</strong> students need to be allocated contiguous books, with each student getting at least one book. <br>Out of all the permutations, the goal is to find the permutation where the student with the most <strong>books </strong>allocated to him gets the minimum number of pages, out of all possible permutations.</span></p>
 <p><span style="font-size: 18px;"><strong>Note</strong>: Return <strong>-1</strong> if a valid assignment is not possible, and allotment should be in contiguous order (see the explanation for better understanding).</span></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
