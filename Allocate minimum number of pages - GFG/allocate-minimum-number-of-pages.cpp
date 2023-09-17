@@ -53,7 +53,7 @@ class Solution
         
         
         int start = maxPageBook;
-        long long end = totalPages  ;
+        long long end = totalPages - A[0]  ;
         int ans =-1;
         while(start<=end){
             int mid = start + (end-start)/2;
