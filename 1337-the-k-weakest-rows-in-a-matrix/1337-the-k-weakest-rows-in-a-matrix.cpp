@@ -3,7 +3,7 @@ public:
     
     int col;
     
-    int countNoOfOne(vector<int>arr){
+    int countNoOfOne(vector<int>&arr){
         int s=0,e=col-1;
         int ans=-1;
         while(s<=e){
