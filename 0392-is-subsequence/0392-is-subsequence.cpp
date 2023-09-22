@@ -1,5 +1,28 @@
 class Solution {
 public:
+    bool isSubsequence(string s, string t) {
+       int  m=s.length();
+       int  n=t.length();
+        if(m==0)return true;
+        if(n==0)return false;
+        int j=m-1;
+        for(int i=n-1;i>=0;i--){
+            if(s[j]==t[i]){
+                j--;
+                if(j==-1)
+                    return true;
+            }
+        }
+        return j==-1;
+    }
+};
+
+
+
+// Recursion + Memoization
+/*
+class Solution {
+public:
     int m,n;
     
     bool solve(int i, int j, string &s, string &t,vector<vector<int>> &dp){
@@ -35,3 +58,4 @@ public:
         return solve(0,0,s,t,dp);
     }
 };
+*/
