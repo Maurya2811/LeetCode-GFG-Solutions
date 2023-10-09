@@ -1,40 +1,43 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& v, int key)
- {
-        int l=0,r=v.size()-1,m;
-        vector<int> v1(2,-1);
-  while(l<=r)
-  {
-    m=l+(r-l)/2;
-     if(v[m]==key)
-     { 
-           v1[0]=m;
-           r=m-1;     
-     }
-     else if(v[m]>key)
-        r=m-1;
-     else
-        l=m+1;
-   }
+ int firstIndex(vector<int>& nums, int target){
+     int s=0, e=nums.size()-1;
+       int ans =-1;
+       while(s<=e){
+           int mid = s + (e-s)/2;
 
-  r=v.size()-1;
-  while(l<=r)
-  {
-      m=l+(r-l)/2;
-       if(v[m]==key)
-        { 
-        //   if(m+1<=r && v[m+1]==key)
-        //     l=m+1;
-        //   else
-            v1[1]=m;
-            l=m+1;      
-        }
-        else if(v[m]>key)
-          r=m-1;
-        else
-          l=m+1;
-  }
-    return v1;
+           if(nums[mid]==target){
+               ans=mid;
+               e=mid-1;
+           }else if(nums[mid]>target){
+               e=mid-1;
+           }else{
+               s=mid+1;
+           }
+       }
+       return ans;
+       
  }
+ int lastIndex(vector<int>& nums, int target){
+     int s=0, e=nums.size()-1;
+       int ans =-1;
+       while(s<=e){
+           int mid = s + (e-s)/2;
+
+           if(nums[mid]==target){
+               ans=mid;
+               s=mid+1;
+           }else if(nums[mid]>target){
+               e=mid-1;
+           }else{
+               s=mid+1;
+           }
+       }
+       return ans;
+       
+ }
+    vector<int> searchRange(vector<int>& nums, int target) {
+           
+           return {firstIndex(nums,target),lastIndex(nums,target)};
+    }
 };
