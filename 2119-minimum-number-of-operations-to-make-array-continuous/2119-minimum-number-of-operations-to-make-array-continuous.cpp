@@ -17,10 +17,9 @@ public:
 
            int numInsideRange = j-i;
 
-           int numOutsideTheRange = n-numInsideRange;
+           int numOutsideTheRange =n-numInsideRange;
 
            minCount = min(minCount,numOutsideTheRange);
-
 
         }
 
