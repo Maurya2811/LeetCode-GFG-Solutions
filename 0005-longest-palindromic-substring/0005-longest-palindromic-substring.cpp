@@ -1,34 +1,43 @@
-// Optimize it by Using Dynamic Proggmg
 class Solution {
 public:
-bool ispalindromic(string &s,int left , int right)
-{
-    while(left<right)
-    {
-        if(s[left] != s[right])
-        return false;
-        left++;
-        right--;
+    int t[1001][1001];
+    
+    bool solve(string &s, int l, int r){
+        if(l >= r) 
+            return 1;
+
+        if(t[l][r] != -1){
+            return t[l][r];
+        }
+
+        if(s[l] == s[r]) {
+            return t[l][r] = solve(s, l+1, r-1);
+        }
+
+        return t[l][r] = false;
     }
-    return true;
-}
+    
     string longestPalindrome(string s) {
-        string ans="";
-        for(int i=0;i<s.length();i++)
-        {
-            for(int j=i;j<s.length();j++)
-            {
-                // Finds all Substrings 
-                // i -> start index 
-                // j -> end index
-                if(ispalindromic(s,i,j))
-                {
-                    string temp = s.substr(i,j-i+1);
-                    if(temp.length()>ans.length())
-                       ans=temp;
+        int n = s.length();
+        
+        int maxlen = INT_MIN;
+        int startingIndex = 0;
+
+        memset(t, -1, sizeof(t));
+
+        for(int i = 0; i < n; i++){
+            for(int j = i; j < n; j++){
+                
+                if(solve(s, i, j)) {
+                    if(j-i+1 > maxlen){
+                        startingIndex = i;
+                        maxlen = j-i+1;
+                    }
                 }
+                
             }
         }
-        return ans;
+
+        return s.substr(startingIndex, maxlen);
     }
 };
