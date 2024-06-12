@@ -5,6 +5,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 # Array
 |  |
 | ------- |
+| [0075-sort-colors](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0075-sort-colors) |
 | [0523-continuous-subarray-sum](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0523-continuous-subarray-sum) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1016-subarray-sums-divisible-by-k) |
 | [1137-height-checker](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1137-height-checker) |
@@ -27,6 +28,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 # Sorting
 |  |
 | ------- |
+| [0075-sort-colors](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0075-sort-colors) |
 | [1137-height-checker](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1137-height-checker) |
 | [1217-relative-sort-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1217-relative-sort-array) |
 # Counting Sort
@@ -34,3 +36,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [1137-height-checker](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1137-height-checker) |
 | [1217-relative-sort-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1217-relative-sort-array) |
+# Two Pointers
+|  |
+| ------- |
+| [0075-sort-colors](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0075-sort-colors) |
