@@ -52,3 +52,11 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0330-patching-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0330-patching-array) |
 | [0982-minimum-increment-to-make-array-unique](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0982-minimum-increment-to-make-array-unique) |
 | [2148-minimum-number-of-moves-to-seat-everyone](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/2148-minimum-number-of-moves-to-seat-everyone) |
+# Union Find
+|  |
+| ------- |
+| [1701-remove-max-number-of-edges-to-keep-graph-fully-traversable](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1701-remove-max-number-of-edges-to-keep-graph-fully-traversable) |
+# Graph
+|  |
+| ------- |
+| [1701-remove-max-number-of-edges-to-keep-graph-fully-traversable](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1701-remove-max-number-of-edges-to-keep-graph-fully-traversable) |
