@@ -60,3 +60,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [1701-remove-max-number-of-edges-to-keep-graph-fully-traversable](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1701-remove-max-number-of-edges-to-keep-graph-fully-traversable) |
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [1803-average-waiting-time](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1803-average-waiting-time) |
+## Simulation
+|  |
+| ------- |
+| [1803-average-waiting-time](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1803-average-waiting-time) |
+<!---LeetCode Topics End-->
