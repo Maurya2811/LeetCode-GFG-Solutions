@@ -65,6 +65,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
 | [1803-average-waiting-time](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1803-average-waiting-time) |
 ## Simulation
 |  |
@@ -84,4 +85,32 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [1818-maximum-score-from-removing-substrings](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/1818-maximum-score-from-removing-substrings) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Sorting
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Merge Sort
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Bucket Sort
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Radix Sort
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
+## Counting Sort
+|  |
+| ------- |
+| [0948-sort-an-array](https://github.com/Maurya2811/LeetCode-GFG-Solutions/tree/master/0948-sort-an-array) |
 <!---LeetCode Topics End-->
